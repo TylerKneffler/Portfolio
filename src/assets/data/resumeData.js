@@ -87,21 +87,6 @@ export const resumeData = {
 
   projects: [
     {
-      id: 1,
-      name: 'Radar-Inspired Aircraft Path Simulation',
-      description: 'Processed and visualized aircraft flight paths, simulating live radar tracking',
-      technologies: ['C'],
-      highlights: [
-        'Processed and visualized aircraft flight paths',
-        'Simulated live radar tracking functionality'
-      ],
-      githubUrl: null,
-      liveUrl: null,
-      imageUrl: null,
-      year: null,
-      sortOrder: 1
-    },
-    {
       id: 2,
       name: 'Warehouse Packaging and Employee Management App',
       description: 'Built a cross-platform app with real-time database integration, workstation logging, and productivity monitoring',
@@ -114,9 +99,9 @@ export const resumeData = {
       ],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: null,
+      imageUrl: '/assets/uploads/warehouse-phone.png',
       year: null,
-      sortOrder: 2
+      sortOrder: 1
     },
     {
       id: 3,
@@ -185,6 +170,21 @@ export const resumeData = {
       githubUrl: null,
       liveUrl: null,
       imageUrl: '/assets/uploads/kirby-gameplay.gif',
+      year: null,
+      sortOrder: 6
+    },
+    {
+      id: 1,
+      name: 'Radar-Inspired Aircraft Path Simulation',
+      description: 'Processed and visualized aircraft flight paths, simulating live radar tracking',
+      technologies: ['C'],
+      highlights: [
+        'Processed and visualized aircraft flight paths',
+        'Simulated live radar tracking functionality'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: null,
       year: null,
       sortOrder: 6
     }
