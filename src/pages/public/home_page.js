@@ -467,7 +467,7 @@ function Home() {
 
       <Spacer height={spacerConfig.skillsToProjects} id="spacer-skills-projects" debug={DEBUG_SPACERS} />
 
-      {/* Projects Section - Full Width */}
+      {/* Projects Section*/}
       <section 
         id="projects"
         className="projects-section full-width"
