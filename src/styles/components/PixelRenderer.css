@@ -1,0 +1,87 @@
+.pixel-renderer {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 2px solid #333;
+  background: #000;
+}
+
+.pixel-canvas {
+  display: block;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transition: opacity 0.3s ease;
+}
+
+.pixel-canvas.loading {
+  opacity: 0.3;
+}
+
+.pixel-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  text-align: center;
+}
+
+.loading-pixels {
+  animation: pixelBlink 1s infinite;
+}
+
+@keyframes pixelBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+/* Hover effects */
+.pixel-renderer:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.pixel-renderer:hover .pixel-canvas {
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Different sizes */
+.pixel-renderer--small {
+  width: 200px;
+  height: 200px;
+}
+
+.pixel-renderer--medium {
+  width: 400px;
+  height: 400px;
+}
+
+.pixel-renderer--large {
+  width: 600px;
+  height: 600px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .pixel-renderer {
+    max-width: 90vw;
+    height: auto;
+  }
+  
+  .pixel-canvas {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .pixel-renderer {
+    max-width: 95vw;
+  }
+}
