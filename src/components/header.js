@@ -11,8 +11,12 @@ function Header() {
   // Only show galaxy selector on home page
   const isHomePage = location.pathname === '/';
 
+
   // Popup hint state: show transient message on page load
   const [showPopup, setShowPopup] = useState(false);
+
+  // Mobile menu state
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isHomePage) return;
@@ -53,22 +57,20 @@ function Header() {
 
   // Smooth scroll handler for nav links
   const handleNavClick = (e, id) => {
-    console.log('Nav click for:', id);
-    e.preventDefault();
+    if (e) e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
       const headerHeight = 60; // Fixed header height
       const offset = window.innerWidth * 0.1; // 10vw offset
       const elementTop = el.getBoundingClientRect().top + window.scrollY;
-      const targetPosition = elementTop - offset - headerHeight - 20; // account for header and slightly before
+      const targetPosition = elementTop - offset - headerHeight - 20;
       window.scrollTo({ top: Math.max(0, targetPosition), behavior: 'smooth' });
-      // Removed direct style override for fade transitions
-    } else {
     }
     // Optionally update hash in URL
     if (window.history && window.history.replaceState) {
       window.history.replaceState(null, '', `/#${id}`);
     }
+    setMobileMenuOpen(false); // Close mobile menu after click
   };
 
   return (
@@ -76,7 +78,26 @@ function Header() {
       <div className="site-header__inner">
         <Link to="/" className="site-header__brand">Tyler Kneffler</Link>
 
-        <nav className="site-header__nav">
+        {/* Hamburger button for mobile */}
+        <button
+          className="site-header__menu-btn mobile-only"
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-controls="site-header__mobile-menu"
+          aria-expanded={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen(open => !open)}
+        >
+          <span className="site-header__menu-icon" aria-hidden="true">
+            {/* Hamburger icon */}
+            {mobileMenuOpen ? (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 18L18 6M6 6l12 12" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/></svg>
+            ) : (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect y="4" width="24" height="2.5" rx="1.25" fill="#fff"/><rect y="11" width="24" height="2.5" rx="1.25" fill="#fff"/><rect y="18" width="24" height="2.5" rx="1.25" fill="#fff"/></svg>
+            )}
+          </span>
+        </button>
+
+        {/* Desktop nav */}
+        <nav className="site-header__nav" aria-label="Main navigation">
           <ul className="site-header__nav-list">
             {sectionLinks.map(link => (
               <li key={link.id} className="site-header__nav-item">
@@ -84,6 +105,7 @@ function Header() {
                   href={`/#${link.id}`}
                   className={`site-header__nav-link ${activeSection === link.id ? 'active' : ''}`}
                   onClick={e => handleNavClick(e, link.id)}
+                  tabIndex={mobileMenuOpen ? -1 : 0}
                 >
                   {link.label}
                 </a>
@@ -98,6 +120,7 @@ function Header() {
                 title="Generate New Galaxy"
                 aria-label="Generate New Galaxy"
                 aria-describedby="galaxy-tooltip"
+                tabIndex={mobileMenuOpen ? -1 : 0}
               >
                 {/* Inline black-and-white SVG galaxy/star icon */}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -121,6 +144,66 @@ function Header() {
             </div>
           )}
         </nav>
+
+        {/* Mobile nav overlay */}
+        <div
+          id="site-header__mobile-menu"
+          className={`site-header__mobile-menu${mobileMenuOpen ? ' open' : ''}`}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          tabIndex={-1}
+          style={{ display: mobileMenuOpen ? 'flex' : 'none' }}
+        >
+          {/* Close (X) button */}
+          <button
+            className="site-header__mobile-menu-close"
+            aria-label="Close navigation menu"
+            onClick={() => setMobileMenuOpen(false)}
+            tabIndex={mobileMenuOpen ? 0 : -1}
+            type="button"
+          >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 18L18 6M6 6l12 12" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/></svg>
+          </button>
+          <nav className="site-header__mobile-nav" aria-label="Mobile navigation">
+            <ul className="site-header__mobile-nav-list">
+              {sectionLinks.map(link => (
+                <li key={link.id} className="site-header__mobile-nav-item">
+                  <a
+                    href={`/#${link.id}`}
+                    className={`site-header__mobile-nav-link${activeSection === link.id ? ' active' : ''}`}
+                    onClick={e => handleNavClick(e, link.id)}
+                    tabIndex={mobileMenuOpen ? 0 : -1}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {isHomePage && (
+              <div className="galaxy-control mobile">
+                <button
+                  className="galaxy-btn"
+                  onClick={generateNewGalaxies}
+                  title="Generate New Galaxy"
+                  aria-label="Generate New Galaxy"
+                  aria-describedby="galaxy-tooltip"
+                  tabIndex={mobileMenuOpen ? 0 : -1}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="2" fill="#ffffff" />
+                    <path d="M4.5 12c0 .276-.224.5-.5.5S3.5 12.276 3.5 12 3.724 11.5 4 11.5s.5.224.5.5z" fill="#ffffff" opacity="0.9" />
+                    <path d="M20.5 12c0 .276-.224.5-.5.5s-.5-.224-.5-.5.224-.5.5-.5.5.224.5.5z" fill="#ffffff" opacity="0.9" />
+                    <path d="M12 4.5c.276 0 .5-.224.5-.5S12.276 3.5 12 3.5s-.5.224-.5.5.224.5.5.5z" fill="#ffffff" opacity="0.7" />
+                    <path d="M12 20.5c.276 0 .5-.224.5-.5s-.224-.5-.5-.5-.5.224-.5.5.224.5.5.5z" fill="#ffffff" opacity="0.7" />
+                    <path d="M7.5 7.5l-.7-.7M16.2 16.2l-.7-.7M16.2 7.8l-.7.7M7.5 16.5l-.7.7" stroke="#ffffff" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />
+                  </svg>
+                  <span id="galaxy-tooltip" className="sr-only">Generate a new galaxy background</span>
+                </button>
+              </div>
+            )}
+          </nav>
+        </div>
       </div>
     </header>
   );

@@ -1,3 +1,103 @@
+/* Hide mobile menu overlay by default (desktop) */
+.site-header__mobile-menu {
+  display: none !important;
+}
+/* Hide mobile-only elements by default, show on mobile */
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .mobile-only {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0 8px;
+    margin-left: 8px;
+    z-index: 1201;
+  }
+  .site-header__nav {
+    display: none !important;
+  }
+  .site-header__mobile-menu {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10,10,20,0.98);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 2000;
+    transition: opacity 0.2s;
+    opacity: 1;
+    padding: 0;
+  }
+  .site-header__mobile-menu:not(.open) {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .site-header__mobile-nav-list {
+    list-style: none;
+    padding: 32px 0 0 0;
+    margin: 0 0 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+    width: 100vw;
+    max-width: 320px;
+    min-height: 100vh;
+    background: none;
+  }
+  .site-header__mobile-nav-link {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 12px 32px 12px 24px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.08);
+    transition: background 0.18s, color 0.18s;
+    text-align: left;
+    display: block;
+    width: 100%;
+    max-width: 320px;
+  }
+  .site-header__mobile-menu-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: #fff;
+    z-index: 2100;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.18s;
+  }
+  .site-header__mobile-menu-close:hover,
+  .site-header__mobile-menu-close:focus {
+    background: rgba(255,255,255,0.12);
+    outline: none;
+  }
+  .site-header__mobile-nav-link.active,
+  .site-header__mobile-nav-link:hover,
+  .site-header__mobile-nav-link:focus {
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+  }
+  .galaxy-control.mobile {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+  }
+}
 /* Navigation links styling */
 .site-header__nav-list {
   display: flex;

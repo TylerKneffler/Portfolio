@@ -218,7 +218,7 @@ export const resumeData = {
       category: 'Database & Cloud',
       items: [
         { name: 'Database Design & Management (SQL)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-        { name: 'Cloud Deployment (AWS, Azure)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg' },
+        { name: 'Cloud Deployment (AWS, Azure)', icon: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/AWS_Simple_Icons_AWS_Cloud.svg' },
         { name: 'Source Control (Git)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' }
       ],
       sortOrder: 3

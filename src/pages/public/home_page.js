@@ -122,10 +122,10 @@ function Home() {
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
-    // Intersection Observer for section visibility - optimized for mobile
+    // Intersection Observer for section visibility - improved for mobile
     const observerOptions = {
-      threshold: 0.2, // Reduced threshold for mobile (was 0.3)
-      rootMargin: '-5% 0px -5% 0px' // Reduced margins for mobile (was -10%)
+      threshold: 0,
+      rootMargin: '-10% 0px -10% 0px' // Appear when section is just entering the viewport
     };
 
     const observer = new IntersectionObserver((entries) => {

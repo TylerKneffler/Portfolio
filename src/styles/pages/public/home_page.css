@@ -307,7 +307,7 @@ html, body {
 }
 
 .skills__item:hover .skills__item-icon {
-  filter: brightness(0) invert(1) brightness(1.1);
+  filter: none;
   transform: scale(1.05);
 }
 
@@ -321,7 +321,7 @@ html, body {
 }
 
 .skills__item:hover img {
-  filter: brightness(0) invert(1) brightness(1.1);
+  filter: none;
 }
 
 .skills__item-name {
