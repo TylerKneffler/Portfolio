@@ -37,6 +37,9 @@ export const GalaxyProvider = ({ children }) => {
     };
   });
 
+  // Active section for navigation highlighting
+  const [activeSection, setActiveSection] = useState('hero');
+
   // Function to generate new random galaxies
   const generateNewGalaxies = () => {
     setSelectedGalaxies({
@@ -49,7 +52,9 @@ export const GalaxyProvider = ({ children }) => {
     selectedGalaxies,
     generateNewGalaxies,
     galaxyTypes,
-    starfieldTypes
+    starfieldTypes,
+    activeSection,
+    setActiveSection
   };
 
   return (

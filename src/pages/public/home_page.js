@@ -6,12 +6,11 @@ import { useGalaxyContext } from '../../contexts/GalaxyContext';
 import '../../styles/pages/public/home_page.css';
 
 function Home() {
+  // Get selected galaxies and active section from context
+  const { selectedGalaxies, activeSection, setActiveSection } = useGalaxyContext();
+
   // Fetch resume data
   const { resumeData, loading, error } = useResumeData();
-  // Get selected galaxies from context
-  const { selectedGalaxies } = useGalaxyContext();
-
-
 
   // State for scroll animations
   const [visibleSections, setVisibleSections] = useState(new Set());
@@ -37,7 +36,8 @@ function Home() {
     heroToAbout: '10vh',    // Reduced for tighter spacing
     aboutToSkills: '10vh',  // Reduced for tighter spacing  
     skillsToProjects: '10vh', // Reduced for tighter spacing
-    projectsToContact: '10vh' // Reduced for tighter spacing
+    projectsToEducation: '12vh', // Reduced for tighter spacing
+    educationToContact: '15vh' // Reduced for tighter spacing
   };
 
   // Extract data from resume - no fallbacks, show loading/error instead
@@ -129,11 +129,20 @@ function Home() {
     };
 
     const observer = new IntersectionObserver((entries) => {
+      let maxRatio = 0;
+      let active = null;
+      
       entries.forEach(entry => {
         const sectionId = entry.target.id;
         
         if (entry.isIntersecting) {
           setVisibleSections(prev => new Set([...prev, sectionId]));
+          
+          // Track the most visible section
+          if (entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            active = sectionId;
+          }
         } else {
           setVisibleSections(prev => {
             const newSet = new Set(prev);
@@ -142,6 +151,11 @@ function Home() {
           });
         }
       });
+      
+      // Update active section if we found one
+      if (active) {
+        setActiveSection(active);
+      }
     }, observerOptions);
 
     // Wait for DOM to be ready, then observe sections
@@ -183,7 +197,7 @@ function Home() {
       document.body.style.overflowX = '';
       document.documentElement.style.overflowX = '';
     };
-  }, [loading, error, personalInfo, lastScrollY, scrollDirection]);
+  }, [loading, error, personalInfo, lastScrollY, scrollDirection, setActiveSection]);
 
   // Individual item visibility tracking
   const [visibleSkillRows, setVisibleSkillRows] = useState(new Set());
@@ -301,7 +315,7 @@ function Home() {
   return (
     <div className="home-container">
       {/* Galaxy Background - Two Galaxies (fixed position) */}
-      <ParallaxGalaxyBackground strength={50} smoothness={0.12} pixelCap={20000}>
+      <ParallaxGalaxyBackground strength={0} smoothness={0.12} pixelCap={20000}>
         {/* Galaxy backgrounds below overlay */}
         <GalaxyBackground
           key={selectedGalaxies.starfield}
@@ -590,7 +604,7 @@ function Home() {
         </div>
       </section>
 
-      <Spacer height={spacerConfig.projectsToContact} id="spacer-projects-education" debug={DEBUG_SPACERS} />
+      <Spacer height={spacerConfig.projectsToEducation} id="spacer-projects-education" debug={DEBUG_SPACERS} />
 
       {/* Education Section */}
       {education && education.length > 0 && (
@@ -636,7 +650,7 @@ function Home() {
         </section>
       )}
 
-      <Spacer height={spacerConfig.projectsToContact} id="spacer-education-contact" debug={DEBUG_SPACERS} />
+      <Spacer height={spacerConfig.educationToContact} id="spacer-education-contact" debug={DEBUG_SPACERS} />
 
       {/* Contact Section */}
       <section 

@@ -41,6 +41,12 @@ npm start
 
 This portfolio is automatically deployed to GitHub Pages using GitHub Actions. Any push to the `main` branch will trigger a new deployment.
 
+# Build
+npm run build
+
+# Deploy
+npm run deploy
+
 ## 📱 Contact
 
 - **GitHub**: [TylerKneffler](https://github.com/TylerKneffler)

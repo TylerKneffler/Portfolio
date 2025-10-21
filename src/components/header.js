@@ -6,7 +6,7 @@ import '../styles/components/header.css';
 
 function Header() {
   const location = useLocation();
-  const { generateNewGalaxies } = useGalaxyContext();
+  const { generateNewGalaxies, activeSection } = useGalaxyContext();
   
   // Only show galaxy selector on home page
   const isHomePage = location.pathname === '/';
@@ -41,12 +41,55 @@ function Header() {
     try { localStorage.setItem('galaxyPopupDismissed', '1'); } catch (e) {}
   };
 
+  // Section navigation links
+  const sectionLinks = [
+    { id: 'hero', label: 'Home' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'education', label: 'Education' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  // Smooth scroll handler for nav links
+  const handleNavClick = (e, id) => {
+    console.log('Nav click for:', id);
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      const headerHeight = 60; // Fixed header height
+      const offset = window.innerWidth * 0.1; // 10vw offset
+      const elementTop = el.getBoundingClientRect().top + window.scrollY;
+      const targetPosition = elementTop - offset - headerHeight - 20; // account for header and slightly before
+      window.scrollTo({ top: Math.max(0, targetPosition), behavior: 'smooth' });
+      // Removed direct style override for fade transitions
+    } else {
+    }
+    // Optionally update hash in URL
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', `/#${id}`);
+    }
+  };
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
         <Link to="/" className="site-header__brand">Tyler Kneffler</Link>
 
         <nav className="site-header__nav">
+          <ul className="site-header__nav-list">
+            {sectionLinks.map(link => (
+              <li key={link.id} className="site-header__nav-item">
+                <a
+                  href={`/#${link.id}`}
+                  className={`site-header__nav-link ${activeSection === link.id ? 'active' : ''}`}
+                  onClick={e => handleNavClick(e, link.id)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
           {isHomePage && (
             <div className="galaxy-control">
               <button
