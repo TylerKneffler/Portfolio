@@ -73,11 +73,20 @@
   font-size: 3.5rem;
   margin-bottom: 20px;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.1);
-  background: linear-gradient(45deg, #fff, #ccc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #fff;
+  text-shadow:
+    0 0px 64px rgba(0,0,0,0.83),
+    0 0px 32px rgba(0,0,0,0.87),
+    0 0px 24px rgba(0,0,0,0.89),
+    0 0px 16px rgba(0,0,0,0.93),
+    0 0px 12px rgba(0,0,0,0.95),
+    0 0px 8px rgba(0,0,0,0.98),
+    0 0px 8px rgba(0,0,0,0.1),
+    0 0px 7px rgba(0,0,0,0.1),
+    0 0px 6px rgba(0,0,0,1),
+    0 0px 5px rgba(0,0,0,0.1),
+    0 0px 4px rgba(0,0,0,0.1),
+    0 0px 3px rgba(0,0,0,1);
 }
 
 .hero-subtitle {
@@ -85,7 +94,20 @@
   margin-bottom: 30px;
   font-weight: normal;
   opacity: 0.8;
-  color: #cccccc;
+  color: #fff;
+  text-shadow:
+    0 0px 64px rgba(0,0,0,0.83),
+    0 0px 32px rgba(0,0,0,0.87),
+    0 0px 24px rgba(0,0,0,0.89),
+    0 0px 16px rgba(0,0,0,0.93),
+    0 0px 12px rgba(0,0,0,0.95),
+    0 0px 8px rgba(0,0,0,0.98),
+    0 0px 8px rgba(0,0,0,1),
+    0 0px 7px rgba(0,0,0,1),
+    0 0px 6px rgba(0,0,0,1),
+    0 0px 5px rgba(0,0,0,1),
+    0 0px 4px rgba(0,0,0,1),
+    0 0px 3px rgba(0,0,0,1);
 }
 
 .hero-description {
@@ -93,7 +115,20 @@
   margin: 0 auto 40px;
   line-height: 1.6;
   max-width: 600px;
-  color: #aaaaaa;
+  color: #fff;
+  text-shadow:
+    0 0px 64px rgba(0,0,0,0.83),
+    0 0px 32px rgba(0,0,0,0.87),
+    0 0px 24px rgba(0,0,0,0.89),
+    0 0px 16px rgba(0,0,0,0.93),
+    0 0px 12px rgba(0,0,0,0.95),
+    0 0px 8px rgba(0,0,0,0.98),
+    0 0px 8px rgba(0,0,0,1),
+    0 0px 7px rgba(0,0,0,1),
+    0 0px 6px rgba(0,0,0,1),
+    0 0px 5px rgba(0,0,0,1),
+    0 0px 4px rgba(0,0,0,1),
+    0 0px 3px rgba(0,0,0,1);
 }
 
 /* Section headers */
@@ -103,6 +138,16 @@
   margin-bottom: 50px;
   text-align: center;
   font-weight: bold;
+  text-shadow:
+    0 0px 64px rgba(0,0,0,0.18),
+    0 0px 32px rgba(0,0,0,0.28),
+    0 0px 24px rgba(0,0,0,0.32),
+    0 0px 16px rgba(0,0,0,0.38),
+    0 0px 12px rgba(0,0,0,0.45),
+    0 0px 8px rgba(0,0,0,0.55),
+    0 0px 5px rgba(0,0,0,0.65),
+    0 0px 4px rgba(0,0,0,0.7),
+    0 0px 3px rgba(0,0,0,0.7);
 }
 
 /* About section specific */
@@ -126,27 +171,36 @@
 
 .about-card {
   padding: 30px;
-  background-color: #000000;
+  background: rgba(0, 0, 0, 0.95);
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .about-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.95);
 }
 
 .about-icon {
-  font-size: 3rem;
-  margin-bottom: 15px;
-}
-
-.about-card-title {
-  color: #ffffff;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow:
+    0 4px 16px #000,
+    0 0px 4px #000,
+    2px 2px 0 #000,
+    -2px -2px 0 #000,
+    0 2px 8px #000,
+    0 0px 2px #000,
+    1px 1px 0 #000,
+    -1px -1px 0 #000;
+  background: linear-gradient(45deg, #fff, #ccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: bold;
 }
 
@@ -182,7 +236,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  background: rgba(0, 0, 0, 0.95);
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   padding: 30px 20px;
@@ -190,6 +244,7 @@
   height: 140px;
   text-align: center;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .skills__row:not(.skills__row-fade-in) .skills__item {
@@ -323,7 +378,7 @@
 }
 
 .project-card {
-  background-color: #000000;
+  background: rgba(0, 0, 0, 0.95);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -331,6 +386,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   opacity: 0;
   transform: translateY(30px);
+  backdrop-filter: blur(10px);
 }
 
 .full-width-card {
@@ -339,8 +395,9 @@
   gap: 40px;
   align-items: center;
   padding: 40px;
-  background: #000000;
+  background: rgba(0, 0, 0, 0.95);
   border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .project-card-no-image {
@@ -536,7 +593,7 @@
 }
 
 .experience-card {
-  background: #000000;
+  background: rgba(0, 0, 0, 0.95);
   padding: 2.5rem;
   border-radius: 15px;
   backdrop-filter: blur(10px);
@@ -618,7 +675,7 @@
 }
 
 .education-card {
-  background: #000000;
+  background: rgba(0, 0, 0, 0.95);
   padding: 2.5rem;
   border-radius: 15px;
   backdrop-filter: blur(10px);

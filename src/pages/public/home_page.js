@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useResumeData } from '../../hooks/useResumeData';
 import GalaxyBackground from '../../components/Galaxy/GalaxyBackground';
+import ParallaxGalaxyBackground from '../../components/Galaxy/ParallaxGalaxyBackground';
+import { useGalaxyContext } from '../../contexts/GalaxyContext';
 import '../../styles/pages/public/home_page.css';
 
 function Home() {
   // Fetch resume data
   const { resumeData, loading, error } = useResumeData();
+  // Get selected galaxies from context
+  const { selectedGalaxies } = useGalaxyContext();
 
 
 
@@ -233,27 +237,31 @@ function Home() {
   // Animation function - fade up/down based on scroll direction
   const getSectionStyle = (sectionId) => {
     const isVisible = visibleSections.has(sectionId);
-    
+
     if (!isVisible) {
       // Use ref for immediate direction access (not delayed state)
       const currentDirection = scrollDirectionRef.current;
-      
       // When scrolling DOWN: sections should fade UP (from below)
       // When scrolling UP: sections should fade DOWN (from above)
       const translateY = currentDirection === 'down' ? 30 : -30;
-      
       return {
         opacity: 0,
-        transform: `translateY(${translateY}px)`,
-        transition: 'opacity 0.6s ease, transform 0.6s ease',
+        filter: 'blur(16px) brightness(0.7)',
+        transform: `translateY(${translateY}px) scale(0.98)`,
+        pointerEvents: 'none',
+        visibility: 'hidden',
+        transition: 'opacity 0.6s cubic-bezier(0.4,0,0.2,1), filter 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1), visibility 0s 0.6s',
       };
     }
-    
+
     // Visible state - always centered
     return {
       opacity: 1,
-      transform: 'translateY(0px)',
-      transition: 'opacity 0.6s ease, transform 0.6s ease',
+      filter: 'blur(0px) brightness(1)',
+      transform: 'translateY(0px) scale(1)',
+      pointerEvents: 'auto',
+      visibility: 'visible',
+      transition: 'opacity 0.6s cubic-bezier(0.4,0,0.2,1), filter 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1), visibility 0s',
     };
   };
 
@@ -292,32 +300,45 @@ function Home() {
 
   return (
     <div className="home-container">
-      {/* Galaxy Background - Two Galaxies */}
-      {/* Simple starfield background */}
-      <GalaxyBackground
-        key="star_field_dense"
-        galaxyType="star_field_dense"
-        animate={true}
-        opacity={0.5}
-        cameraDistance={3000}
-        rotationSpeed={0.00001}
-        includeStarfield={true}
-        zIndex={0}
-        parallaxStrength={0.5}
-      />
-      
-      {/* Actual galaxy structure */}
-      <GalaxyBackground
-        key="spiral-galaxy"
-        galaxyType="spiral"
-        animate={true}
-        opacity={0.9}
-        cameraDistance={10000}
-        rotationSpeed={0.00003}
-        includeStarfield={false}
-        zIndex={0}
-        parallaxStrength={1.5}
-      />
+      {/* Galaxy Background - Two Galaxies (fixed position) */}
+      <ParallaxGalaxyBackground strength={50} smoothness={0.12} pixelCap={20000}>
+        {/* Galaxy backgrounds below overlay */}
+        <GalaxyBackground
+          key={selectedGalaxies.starfield}
+          galaxyType={selectedGalaxies.starfield}
+          animate={true}
+          opacity={0.5}
+          cameraDistance={2000}
+          rotationSpeed={0.00001}
+          includeStarfield={true}
+          zIndex={0}
+          pixelRatio={.6}
+        />
+        {/* Actual galaxy structure */}
+        <GalaxyBackground
+          key={selectedGalaxies.main}
+          galaxyType={selectedGalaxies.main}
+          animate={true}
+          opacity={0.9}
+          cameraDistance={5000}
+          rotationSpeed={0.00003}
+          includeStarfield={false}
+          zIndex={0}
+          pixelRatio={.6}
+        />
+        {/* Black overlay for dimming effect */}
+        <div className="black-overlay" style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'black',
+          opacity: 0,
+          zIndex: 1,
+          pointerEvents: 'none',
+        }} />
+      </ParallaxGalaxyBackground>
 
       {/* Hero Section */}
       <section 

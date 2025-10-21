@@ -1,0 +1,238 @@
+/* Header styles moved from inline to CSS */
+.site-header {
+  background-color: #000000;
+  color: white;
+  height: 60px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #333333;
+  width: 100%;
+  /* Allow popups that are positioned outside the header to remain visible */
+  overflow: visible;
+}
+
+.site-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: visible; /* ensure child popups aren't clipped by inner container */
+}
+
+.site-header__brand {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.galaxy-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  backdrop-filter: blur(2px);
+  color: white;
+  align-self: center;
+  padding-top: 2px; /* slight upward spacing to visually center icon */
+  position: relative; /* needed for tooltip positioning */
+}
+
+.galaxy-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.06);
+}
+
+.galaxy-btn:active {
+  transform: scale(0.96);
+}
+
+.galaxy-btn svg {
+  display: block;
+}
+
+/* Tooltip for galaxy button */
+.galaxy-btn::after {
+  content: "New galaxy";
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1400;
+}
+
+.galaxy-btn::before {
+  /* small arrow under the tooltip */
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.85);
+  transform: translateX(-50%) rotate(45deg) translateY(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  z-index: 1400;
+}
+
+/* Show tooltip on hover, focus (keyboard), or active */
+.galaxy-btn:hover::after,
+.galaxy-btn:focus::after,
+.galaxy-btn:active::after,
+.galaxy-btn:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.galaxy-btn:hover::before,
+.galaxy-btn:focus::before,
+.galaxy-btn:active::before,
+.galaxy-btn:focus-visible::before {
+  opacity: 1;
+  transform: translateX(-50%) rotate(45deg) translateY(0);
+}
+
+/* On small touch screens, rely on the native title attribute instead of CSS tooltip */
+@media (hover: none) and (pointer: coarse) {
+  .galaxy-btn::after,
+  .galaxy-btn::before {
+    display: none;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .site-header { height: 50px; }
+  .site-header__inner { padding: 0 32px; }
+  .galaxy-btn { width: 40px; height: 40px; }
+}
+
+/* Screen-reader only helper */
+.sr-only {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  border: 0; padding: 0; margin: -1px;
+}
+
+/* Transient popup hint that appears near the galaxy button on page load */
+.galaxy-popup {
+  position: absolute;
+  /* sit to the left under the button; moved 20px to the right */
+  right: -15px;
+  top: calc(100% + 8px);
+  transform: none;
+  /* more opaque white per request */
+  background: rgba(255,255,255,0.9);
+  color: #111;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 260px;
+  white-space: nowrap;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  z-index: 1290;
+  animation: popupIn 240ms ease;
+}
+
+/* triangular pointer that points up-right toward the button */
+.galaxy-popup::after {
+  content: "";
+  position: absolute;
+  top: -6px; /* slightly above the popup */
+  right: 12px; /* near the popup's top-right corner */
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.9);
+  transform: rotate(45deg);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  z-index: -1; /* place beneath the popup so the shadow looks correct */
+}
+
+.galaxy-popup__close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+/* Make the close button area overlap under the right edge of the galaxy button */
+.galaxy-control {
+  position: relative;
+}
+
+.galaxy-popup__close {
+  color: #111;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  padding: 2px 6px;
+  margin-left: 6px;
+}
+
+.galaxy-control .galaxy-btn {
+  /* make the button sit overlapping the right edge of the popup */
+  position: relative;
+  z-index: 1300;
+  margin-right: -18px;
+}
+
+/* Ensure popup sits above the header border and other elements */
+.galaxy-control .galaxy-popup {
+  z-index: 1290;
+}
+
+@keyframes popupIn {
+  from { opacity: 0; transform: translateY(-40%) scale(0.98); }
+  to { opacity: 1; transform: translateY(-50%) scale(1); }
+}
+
+@media (max-width: 768px) {
+  .galaxy-popup { right: 60px; font-size: 12px; padding: 8px 10px; }
+}

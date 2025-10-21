@@ -12,7 +12,7 @@ function Layout() {
       overflowX: 'hidden'
     }}>
       <Header />
-      <main style={{ flex: 1, overflowX: 'hidden' }}>
+      <main style={{ flex: 1, overflowX: 'hidden', paddingTop: '60px' }}>
         <Outlet /> {/* Render current page here */}
       </main>
       <Footer/>

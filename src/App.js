@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import AppRoutes from './components/AppRoutes';
+import { GalaxyProvider } from './contexts/GalaxyContext';
 
 function App() {
   useEffect(() => {
@@ -13,7 +14,9 @@ function App() {
   return (
     <div>
       <Router basename={process.env.NODE_ENV === 'production' ? '/Portfolio' : ''}>
-        <AppRoutes />
+        <GalaxyProvider>
+          <AppRoutes />
+        </GalaxyProvider>
       </Router>
     </div>
   );

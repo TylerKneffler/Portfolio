@@ -8,7 +8,7 @@ export const resumeData = {
     location: 'Dover, OH',
     linkedinUrl: null,
     githubUrl: null,
-    summary: 'Software Developer and Engineer with expertise in full-stack web, mobile, and custom applications. Skilled in cloud infrastructure on AWS and Azure, with a focus on scalability, performance, and reliability. Strong background in Agile development, and cross-platform application development.'
+    summary: 'Engineer experienced building web and mobile applications, designing cloud infrastructure (AWS, Azure), and delivering scalable, reliable systems. Proven at improving performance through pragmatic architecture, automated testing, and CI/CD in Agile teams.'
   },
 
   workExperience: [
@@ -90,7 +90,7 @@ export const resumeData = {
       id: 2,
       name: 'Warehouse Packaging and Employee Management App',
       description: 'Built a cross-platform app with real-time database integration, workstation logging, and productivity monitoring',
-      technologies: ['Xamarin', '.NET MAUI'],
+      technologies: ['Xamarin'],
       highlights: [
         'Cross-platform application development',
         'Real-time database integration',
@@ -99,7 +99,7 @@ export const resumeData = {
       ],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: '/assets/uploads/warehouse-phone.png',
+      imageUrl: '/Portfolio/assets/uploads/warrehouse_phone_example.png',
       year: null,
       sortOrder: 1
     },
@@ -116,9 +116,9 @@ export const resumeData = {
       ],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: '/assets/uploads/giftcardplugin.png',
+      imageUrl: '/Portfolio/assets/uploads/giftcardplugin.png',
       year: null,
-      sortOrder: 3
+      sortOrder: 2
     },
     {
       id: 4,
@@ -133,15 +133,15 @@ export const resumeData = {
       ],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: '/assets/uploads/TimeCardApp.png',
+      imageUrl: '/Portfolio/assets/uploads/TimeCardApp.png',
       year: null,
-      sortOrder: 4
+      sortOrder: 3
     },
     {
       id: 5,
       name: 'AEV (Advanced Energy Vehicle)',
       description: 'Collaborated on the design and testing of an energy-efficient autonomous vehicle. Conducted evaluations and optimizations documented at OSU',
-      technologies: ['Hardware/Software Integration'],
+      technologies: ['MatLab', 'Arduino'],
       highlights: [
         'Energy-efficient vehicle design',
         'Autonomous vehicle systems',
@@ -152,15 +152,15 @@ export const resumeData = {
       ],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: '/assets/uploads/AEVData.png',
+      imageUrl: '/Portfolio/assets/uploads/AEVData.png',
       year: null,
-      sortOrder: 5
+      sortOrder: 4
     },
     {
       id: 6,
       name: 'Game Development Projects',
-      description: 'Developed various game projects including platformers and interactive experiences using game development frameworks',
-      technologies: ['Unity', 'C#', 'Game Development'],
+      description: 'Developed multiple game projects and, through research and experimentation, recreated classic SNES titles such as Mario—later transforming it into another classic Kirby\'s Dreamland, another platformer—to study and apply core gameplay mechanics and design principles.',
+      technologies: ['C#', 'Game Development'],
       highlights: [
         'Platform game mechanics implementation',
         'Character controller systems',
@@ -169,9 +169,9 @@ export const resumeData = {
       ],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: '/assets/uploads/kirby-gameplay.gif',
+      imageUrl: '/Portfolio/assets/uploads/kirby-gameplay.gif',
       year: null,
-      sortOrder: 6
+      sortOrder: 5
     },
     {
       id: 1,

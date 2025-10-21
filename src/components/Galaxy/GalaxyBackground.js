@@ -442,86 +442,13 @@ const GalaxyBackground = ({
     };
   }, [effectiveGalaxyType, animate, opacity, cameraDistance, rotationSpeed, pixelRatio, includeStarfield]);
 
-  // Parallax effect: smooth move the entire .galaxy-background opposite to the page scroll
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    // Determine strength: if a number is provided, treat it as a direct multiplier
-    const strength = typeof parallaxStrength === 'number'
-      ? parallaxStrength
-      : (0.15 + (Number(zIndex) || 0) * 0.02);
-
-    // Smoothness clamp 0.01..0.95
-    const smooth = Math.max(0.01, Math.min(0.95, parallaxSmoothness));
-
-    let targetY = 0;
-    let currentY = 0;
-    let rafId = null;
-
-    const onScroll = () => {
-      const scrollY = (window.scrollY || window.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || 0);
-      // target is opposite to scroll and scaled by strength
-        let rawTarget = -scrollY * strength;
-        // clamp to pixel cap to avoid offscreen/unusable translations
-        // If parallaxPixelCap is omitted or non-finite, don't clamp
-        const cap = Number(parallaxPixelCap);
-        if (isFinite(cap)) {
-          targetY = Math.max(-cap, Math.min(cap, rawTarget));
-        } else {
-          targetY = rawTarget;
-        }
-      // expose for debugging in inspector
-      try { container.dataset.parallaxTarget = Math.round(targetY); } catch(e) {}
-      if (!rafId) rafId = requestAnimationFrame(animateLoop);
-    };
-
-    const animateLoop = () => {
-      // lerp currentY towards targetY
-      currentY += (targetY - currentY) * smooth;
-      container.style.transform = `translate3d(0px, ${currentY}px, 0px)`;
-      // expose current value for debugging in inspector
-      try { container.dataset.parallaxCurrent = Math.round(currentY); } catch(e) {}
-
-      // continue until close enough
-      if (Math.abs(targetY - currentY) > 0.5) {
-        rafId = requestAnimationFrame(animateLoop);
-      } else {
-        rafId = null;
-      }
-    };
-
-    container.style.willChange = 'transform';
-  window.addEventListener('scroll', onScroll, { passive: true });
-  // ensure wheel and touch move also update parallax target immediately
-  window.addEventListener('wheel', onScroll, { passive: true });
-  window.addEventListener('touchmove', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-
-    // initialize on mount
-    onScroll();
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('wheel', onScroll);
-      window.removeEventListener('touchmove', onScroll);
-      window.removeEventListener('resize', onScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-      try {
-        container.style.transform = '';
-        container.style.willChange = '';
-        delete container.dataset.parallaxCurrent;
-        delete container.dataset.parallaxTarget;
-      } catch (e) {}
-    };
-  }, [zIndex, parallaxStrength, parallaxSmoothness, parallaxPixelCap]);
 
   return (
     <div 
       ref={containerRef}
       className={`galaxy-background ${className}`}
       style={{
-        position: 'absolute',
+        position: 'inherit',
         top: 0,
         left: 0,
         width: '100%',
