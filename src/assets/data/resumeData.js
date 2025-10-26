@@ -8,7 +8,7 @@ export const resumeData = {
     location: 'Dover, OH',
     linkedinUrl: null,
     githubUrl: null,
-    summary: 'Engineer experienced building web and mobile applications, designing cloud infrastructure (AWS, Azure), and delivering scalable, reliable systems. Proven at improving performance through pragmatic architecture, automated testing, and CI/CD in Agile teams.'
+    summary: 'Engineer experienced in building web and mobile applications, designing cloud infrastructure (AWS, Azure), and delivering scalable, reliable systems through full lifecycle development—from concept and architecture to deployment and maintenance.'
   },
 
   workExperience: [

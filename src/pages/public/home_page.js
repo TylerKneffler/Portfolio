@@ -317,29 +317,40 @@ function Home() {
       {/* Galaxy Background - Two Galaxies (fixed position) */}
       <ParallaxGalaxyBackground strength={0} smoothness={0.12} pixelCap={20000}>
         {/* Galaxy backgrounds below overlay */}
-        <GalaxyBackground
-          key={selectedGalaxies.starfield}
-          galaxyType={selectedGalaxies.starfield}
-          animate={true}
-          opacity={0.5}
-          cameraDistance={2000}
-          rotationSpeed={0.00001}
-          includeStarfield={true}
-          zIndex={0}
-          pixelRatio={.6}
-        />
-        {/* Actual galaxy structure */}
-        <GalaxyBackground
-          key={selectedGalaxies.main}
-          galaxyType={selectedGalaxies.main}
-          animate={true}
-          opacity={0.9}
-          cameraDistance={5000}
-          rotationSpeed={0.00003}
-          includeStarfield={false}
-          zIndex={0}
-          pixelRatio={.6}
-        />
+        {(() => {
+          // Double cameraDistance for mobile views
+          const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+          const starfieldCameraDistance = isMobile ? 2000 : 1000;
+          const mainCameraDistance = isMobile ? 6000 : 3000;
+          const pixelRatio = isMobile ? 1 : 0.75;
+          return (
+            <>
+              <GalaxyBackground
+                key={selectedGalaxies.starfield}
+                galaxyType={selectedGalaxies.starfield}
+                animate={true}
+                opacity={0.5}
+                cameraDistance={starfieldCameraDistance}
+                rotationSpeed={0.00001}
+                includeStarfield={true}
+                zIndex={0}
+                pixelRatio={pixelRatio}
+              />
+              {/* Actual galaxy structure */}
+              <GalaxyBackground
+                key={selectedGalaxies.main}
+                galaxyType={selectedGalaxies.main}
+                animate={true}
+                opacity={0.9}
+                cameraDistance={mainCameraDistance}
+                rotationSpeed={0.00003}
+                includeStarfield={false}
+                zIndex={0}
+                pixelRatio={pixelRatio}
+              />
+            </>
+          );
+        })()}
         {/* Black overlay for dimming effect */}
         <div className="black-overlay" style={{
           position: 'absolute',
