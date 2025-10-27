@@ -193,7 +193,7 @@ export const resumeData = {
   skills: [
     {
       id: 1,
-      category: 'Full Stack Development',
+      category: 'Software Development',
       items: [
         { name: 'Full Stack Development', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
         { name: 'Object-Oriented Programming (OOP)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
