@@ -39,17 +39,17 @@ html, body {
 
 /* Section content containers */
 .section-content {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .wide-content {
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .contact-content {
-  max-width: 600px;
+  max-width: 1200px; /* unified width */
   text-align: center;
   background-color: #000000;
   padding: 60px 40px;
@@ -71,7 +71,7 @@ html, body {
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -81,18 +81,20 @@ html, body {
   font-weight: bold;
   color: #fff;
   text-shadow:
-    0 0px 64px rgba(0,0,0,0.83),
-    0 0px 32px rgba(0,0,0,0.87),
-    0 0px 24px rgba(0,0,0,0.89),
-    0 0px 16px rgba(0,0,0,0.93),
-    0 0px 12px rgba(0,0,0,0.95),
-    0 0px 8px rgba(0,0,0,0.98),
-    0 0px 8px rgba(0,0,0,0.1),
-    0 0px 7px rgba(0,0,0,0.1),
+    0 0px 64px rgba(0,0,0,0.90),
+    0 0px 32px rgba(0,0,0,0.93),
+    0 0px 24px rgba(0,0,0,0.95),
+    0 0px 16px rgba(0,0,0,0.97),
+    0 0px 12px rgba(0,0,0,0.98),
+    0 0px 10px rgba(0,0,0,0.99),
+    0 0px 8px rgba(0,0,0,1),
+    0 0px 7px rgba(0,0,0,1),
     0 0px 6px rgba(0,0,0,1),
-    0 0px 5px rgba(0,0,0,0.1),
-    0 0px 4px rgba(0,0,0,0.1),
-    0 0px 3px rgba(0,0,0,1);
+    0 0px 5px rgba(0,0,0,1),
+    0 0px 4px rgba(0,0,0,1),
+    0 0px 3px rgba(0,0,0,1),
+    0 0px 2px rgba(0,0,0,1),
+    0 0px 1px rgba(0,0,0,1);
 }
 
 .hero-subtitle {
@@ -102,39 +104,43 @@ html, body {
   opacity: 0.8;
   color: #fff;
   text-shadow:
-    0 0px 64px rgba(0,0,0,0.83),
-    0 0px 32px rgba(0,0,0,0.87),
-    0 0px 24px rgba(0,0,0,0.89),
-    0 0px 16px rgba(0,0,0,0.93),
-    0 0px 12px rgba(0,0,0,0.95),
-    0 0px 8px rgba(0,0,0,0.98),
+    0 0px 64px rgba(0,0,0,0.90),
+    0 0px 32px rgba(0,0,0,0.93),
+    0 0px 24px rgba(0,0,0,0.95),
+    0 0px 16px rgba(0,0,0,0.97),
+    0 0px 12px rgba(0,0,0,0.98),
+    0 0px 10px rgba(0,0,0,0.99),
     0 0px 8px rgba(0,0,0,1),
     0 0px 7px rgba(0,0,0,1),
     0 0px 6px rgba(0,0,0,1),
     0 0px 5px rgba(0,0,0,1),
     0 0px 4px rgba(0,0,0,1),
-    0 0px 3px rgba(0,0,0,1);
+    0 0px 3px rgba(0,0,0,1),
+    0 0px 2px rgba(0,0,0,1),
+    0 0px 1px rgba(0,0,0,1);
 }
 
 .hero-description {
   font-size: 1.2rem;
   margin: 0 auto 40px;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 800px;
   color: #fff;
   text-shadow:
-    0 0px 64px rgba(0,0,0,0.83),
-    0 0px 32px rgba(0,0,0,0.87),
-    0 0px 24px rgba(0,0,0,0.89),
-    0 0px 16px rgba(0,0,0,0.93),
-    0 0px 12px rgba(0,0,0,0.95),
-    0 0px 8px rgba(0,0,0,0.98),
+    0 0px 64px rgba(0,0,0,0.90),
+    0 0px 32px rgba(0,0,0,0.93),
+    0 0px 24px rgba(0,0,0,0.95),
+    0 0px 16px rgba(0,0,0,0.97),
+    0 0px 12px rgba(0,0,0,0.98),
+    0 0px 10px rgba(0,0,0,0.99),
     0 0px 8px rgba(0,0,0,1),
     0 0px 7px rgba(0,0,0,1),
     0 0px 6px rgba(0,0,0,1),
     0 0px 5px rgba(0,0,0,1),
     0 0px 4px rgba(0,0,0,1),
-    0 0px 3px rgba(0,0,0,1);
+    0 0px 3px rgba(0,0,0,1),
+    0 0px 2px rgba(0,0,0,1),
+    0 0px 1px rgba(0,0,0,1);
 }
 
 /* Section headers */
@@ -145,15 +151,20 @@ html, body {
   text-align: center;
   font-weight: bold;
   text-shadow:
-    0 0px 64px rgba(0,0,0,0.18),
-    0 0px 32px rgba(0,0,0,0.28),
-    0 0px 24px rgba(0,0,0,0.32),
-    0 0px 16px rgba(0,0,0,0.38),
-    0 0px 12px rgba(0,0,0,0.45),
-    0 0px 8px rgba(0,0,0,0.55),
-    0 0px 5px rgba(0,0,0,0.65),
-    0 0px 4px rgba(0,0,0,0.7),
-    0 0px 3px rgba(0,0,0,0.7);
+    0 0px 64px rgba(0,0,0,0.90),
+    0 0px 32px rgba(0,0,0,0.93),
+    0 0px 24px rgba(0,0,0,0.95),
+    0 0px 16px rgba(0,0,0,0.97),
+    0 0px 12px rgba(0,0,0,0.98),
+    0 0px 10px rgba(0,0,0,0.99),
+    0 0px 8px rgba(0,0,0,1),
+    0 0px 7px rgba(0,0,0,1),
+    0 0px 6px rgba(0,0,0,1),
+    0 0px 5px rgba(0,0,0,1),
+    0 0px 4px rgba(0,0,0,1),
+    0 0px 3px rgba(0,0,0,1),
+    0 0px 2px rgba(0,0,0,1),
+    0 0px 1px rgba(0,0,0,1);
 }
 
 /* About section specific */
@@ -164,7 +175,7 @@ html, body {
 }
 
 .about-content {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -226,7 +237,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -357,7 +368,8 @@ html, body {
 
 .projects-container {
   width: 100%;
-  max-width: none;
+  max-width: 1200px; /* unified width for projects */
+  margin: 0 auto;
 }
 
 .projects-header {
@@ -379,7 +391,7 @@ html, body {
 .full-width-grid {
   grid-template-columns: 1fr;
   gap: 60px;
-  padding: 0 40px;
+  padding: 0px;
   max-width: 1200px;
 }
 
@@ -396,8 +408,8 @@ html, body {
 }
 
 .full-width-card {
-  display: grid;
-  grid-template-columns: 400px 1fr;
+  display: flex;
+  flex-direction: row;
   gap: 40px;
   align-items: center;
   padding: 40px;
@@ -406,8 +418,17 @@ html, body {
   backdrop-filter: blur(10px);
 }
 
-.project-card-no-image {
-  grid-template-columns: 1fr !important;
+/* When a full-width card has no image, stack content vertically so the
+   layout doesn't leave an empty image column */
+.full-width-card.project-card-no-image {
+  flex-direction: column;
+}
+
+/* When a card is marked as having no image, hide the image container so
+   the layout doesn't reserve the image column after an image load error. */
+.project-card-no-image .project-image,
+.project-card[data-image-missing="true"] .project-image {
+  display: none;
 }
 
 .project-card:hover,
@@ -482,6 +503,7 @@ html, body {
 
 /* Project Images and Enhanced Layout */
 .project-image {
+  min-width: 250px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
@@ -594,7 +616,7 @@ html, body {
 }
 
 .experience-timeline {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -676,7 +698,7 @@ html, body {
 }
 
 .education-timeline {
-  max-width: 800px;
+  max-width: 1200px; /* unified width */
   margin: 0 auto;
 }
 
@@ -741,6 +763,18 @@ html, body {
   color: #cccccc;
   line-height: 1.6;
   margin: 0;
+}
+
+/* Style bullets for education additional info to match resume look */
+.education-additional ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.education-additional li {
+  margin-bottom: 0.5rem;
+  color: #cccccc;
+  line-height: 1.5;
 }
 
 /* Contact section */
@@ -964,12 +998,12 @@ html, body {
   }
   
   .full-width-grid {
-    padding: 0 20px;
+    padding: 0px;
     gap: 40px;
   }
   
   .full-width-card {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 25px;
     padding: 25px;
   }

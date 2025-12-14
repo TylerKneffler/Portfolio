@@ -1,4 +1,4 @@
-// Static resume data extracted from database
+// Static resume data extracted from updated master resume
 export const resumeData = {
   personalInfo: {
     fullName: 'Tyler Kneffler',
@@ -7,8 +7,8 @@ export const resumeData = {
     phone: '(330) 447-1238',
     location: 'Dover, OH',
     linkedinUrl: null,
-    githubUrl: null,
-    summary: 'Engineer experienced in building web and mobile applications, designing cloud infrastructure (AWS, Azure), and delivering scalable, reliable systems through full lifecycle development—from concept and architecture to deployment and maintenance.'
+    githubUrl: 'https://tylerkneffler.github.io/Portfolio',
+    summary: 'Software Developer and Engineer with over 3 years of professional experience and a strong foundation from 4 years of academic training in Computer Science and Engineering at The Ohio State University. Proven expertise in full-stack development, cross-platform mobile applications, cloud infrastructure, and the full software development lifecycle. Skilled in designing scalable, high-performance solutions, integrating APIs, and implementing robust software architectures.'
   },
 
   workExperience: [
@@ -42,7 +42,8 @@ export const resumeData = {
       responsibilities: [
         'Supported and repaired campus learning space technology, including A/V systems, networking, and classroom IT equipment',
         'Responded to incident tickets and provided hands-on technical assistance for faculty, staff, and students',
-        'Documented troubleshooting procedures and trained new staff to ensure consistent IT support coverage'
+        'Documented troubleshooting procedures and trained new staff to ensure consistent IT support coverage',
+        'Provided student support at Digital Union facilities for 3D modeling, printing, engraving, and programming'
       ],
       sortOrder: 2
     },
@@ -62,15 +63,260 @@ export const resumeData = {
     }
   ],
 
+  projects: [
+    {
+      id: 1,
+      name: 'Warehouse Packaging and Employee Management App',
+      description: 'Cross-platform mobile and admin application to manage productivity, materials, and packaging operations with real-time sync and barcode scanning.',
+      technologies: ['Xamarin', '.NET MAUI'],
+      highlights: [
+        'Real-time database synchronization for workstation activity and productivity logging',
+        'Barcode scanning integration for product/material tracking',
+        'Custom package assembly instructions and rendering system',
+        'Automated label generation and printing tied to batch and order IDs',
+        'Inventory management with live updates and reorder alerts',
+        'Role-based dashboards for supervisors and workers with real-time analytics'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: '/Portfolio/assets/uploads/warrehouse_phone_example.png',
+      year: null,
+      sortOrder: 1
+    },
+    {
+      id: 2,
+      name: 'TimeCard App & Administrative Site',
+      description: 'Cross-platform employee time tracking system with facial recognition authentication, geofencing, and a .NET administrative portal for reporting and management.',
+      technologies: ['ASP.NET', '.NET MAUI'],
+      highlights: [
+        'Facial recognition authentication to prevent buddy punching',
+        'Real-time geolocation and geofencing for job site verification',
+        'API-driven architecture connecting mobile app and web portal',
+        'Comprehensive reporting tools and exportable summaries for workforce analytics'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: '/Portfolio/assets/uploads/TimeCardApp.png',
+      year: null,
+      sortOrder: 2
+    },
+    {
+      id: 3,
+      name: 'Shipping Plugin',
+      description: 'Custom WordPress shipping plugin providing dynamic rulesets and carrier API integration for real-time rates and tracking.',
+      technologies: ['PHP', 'JavaScript', 'HTML'],
+      highlights: [
+        'Dynamic rulesets for shipping rate calculation based on product, cart, weight, and destination',
+        'Integration with UPS/FedEx/USPS APIs for live rates and tracking',
+        'Administrative interface for zones, custom rate tables, and handling fees',
+        'AJAX-based front-end updates for instant rate recalculation during checkout'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: '/Portfolio/assets/uploads/shipping_plugin.png',
+      year: null,
+      sortOrder: 3
+    },
+    {
+      id: 4,
+      name: 'Gift Card Plugin',
+      description: 'Secure WordPress gift card system with bulk generation, PDF output, role-based access, and transaction logging.',
+      technologies: ['PHP', 'JavaScript', 'HTML'],
+      highlights: [
+        'Bulk card creation and import tools with unique identifiers and balance tracking',
+        'PDF generation for printable cards',
+        'Administrative backend for manual redemptions and analytics',
+        'Role-based access controls to protect financial operations'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: '/Portfolio/assets/uploads/giftcardplugin.png',
+      year: null,
+      sortOrder: 4
+    },
+    {
+      id: 5,
+      name: 'Embedded Systems & Robotics Projects',
+      description: 'Series of embedded systems and robotics projects at OSU including an autonomous energy vehicle (AEV), marble sorting robot, and automatic lighting system, focusing on sensor integration, embedded control, and performance optimization.',
+      technologies: ['MatLab', 'C++', 'Arduino'],
+      highlights: [
+        'Autonomous energy vehicle with embedded control systems and sensor-based navigation',
+        'Concept selection and trade-off analysis (aerodynamics vs weight)',
+        'Sensor-driven sorting robot with color and proximity detection',
+        'Automatic lighting system using ambient light and motion sensors',
+        'Interrupt-driven programming and feedback control loops for precise behavior',
+        'Performance data collection and iterative optimization',
+        'Hardware/software integration and firmware development'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: '/Portfolio/assets/uploads/AEVData.png',
+      year: null,
+      sortOrder: 5
+    },
+    {
+      id: 6,
+      name: 'Radar-Inspired Aircraft Flight Path Simulation',
+      description: 'Real-time simulation of aircraft flight paths with radar-style tracking, flight plan management, and vector-based trajectory rendering.',
+      technologies: ['C'],
+      highlights: [
+        'Simulated live tracking and visualization of multiple aircraft',
+        'Flight plan input and dynamic course correction handling',
+        'Efficient data structures and rendering optimizations for real-time performance'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: '/Portfolio/assets/uploads/radar_simulation.gif',
+      year: null,
+      sortOrder: 6
+    },
+    {
+      id: 7,
+      name: 'Above the Clouds',
+      description: 'Action-adventure Unity game with procedural levels, combat mechanics, and player progression systems.',
+      technologies: ['Unity', 'C#'],
+      highlights: [
+        'Procedural level generation for replayability',
+        'Custom combat system and animation blending',
+        'Inventory, shop systems, and player progression mechanics'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: '/Portfolio/assets/uploads/above_the_clouds.png',
+      year: null,
+      sortOrder: 7
+    },
+    {
+      id: 8,
+      name: 'Game Development Research Project',
+      description: 'Research-driven projects recreating classic SNES titles to study mechanics and design; implemented platformer gameplay, character controllers, and game state management.',
+      technologies: ['MonoGame', 'C#'],
+      highlights: [
+        'Recreated platformer mechanics from classic titles for research',
+        'Implemented collision, movement, and level interaction systems',
+        'Agile iteration and playtesting to refine game systems'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: '/Portfolio/assets/uploads/kirby-gameplay.gif',
+      year: null,
+      sortOrder: 8
+    },
+    {
+      id: 9,
+      name: 'Unity Card Game System with RTS-Style Battlefield',
+      description: 'Comprehensive card game framework built in Unity featuring deck management, hand controllers, discard piles, and an RTS-inspired battlefield system for tactical card-based gameplay.',
+      technologies: ['Unity', 'C#'],
+      highlights: [
+        'Architected modular card controller system with base classes for extensible gameplay zones',
+        'Implemented curved hand layout using Bezier curves with dynamic spacing and interactive hover effects',
+        'Built player and enemy deck systems with drawing and discard pile management',
+        'Designed battlefield controller for RTS-style card placement and spatial positioning',
+        'Created mouse-based card selection with distance calculations and visual feedback',
+        'Developed smooth animation system for card positioning, rotation, and transitions',
+        'Implemented elevation-based rendering for card depth and selection highlighting'
+      ],
+      githubUrl: null,
+      liveUrl: null,
+      imageUrl: '/Portfolio/assets/uploads/card_game.gif',
+      year: null,
+      sortOrder: 9
+    }
+  ],
+
+  skills: [
+    {
+      id: 1,
+      category: 'Programming Languages',
+      items: [
+        { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg' },
+        { name: 'C#', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
+        { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+        { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+        { name: 'Swift', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg' },
+        { name: 'Kotlin', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg' },
+        { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
+        { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+        { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+        { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+        { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' }
+      ],
+      sortOrder: 1
+    },
+    {
+      id: 2,
+      category: 'Frameworks & Platforms',
+      items: [
+        { name: 'ASP.NET', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg' },
+        { name: '.NET MAUI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg' },
+        { name: 'Xamarin', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg' },
+        { name: 'Unity', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg' },
+        { name: 'Unreal Engine', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg' },
+        { name: 'WordPress', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg' },
+        { name: 'Blazor', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg' },
+        { name: 'ReactJS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' }
+      ],
+      sortOrder: 2
+    },
+    {
+      id: 3,
+      category: 'Web & Mobile Development',
+      items: [
+        { name: 'Full-Stack Development', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'Mobile App Development (Native & Cross-Platform)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg' },
+        { name: 'API Integration (RESTful Services)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' }
+      ],
+      sortOrder: 3
+    },
+    {
+      id: 4,
+      category: 'Database & Cloud',
+      items: [
+        { name: 'SQL Server', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg' },
+        { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+        { name: 'Database Design & Management', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+        { name: 'AWS', icon: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/AWS_Simple_Icons_AWS_Cloud.svg' },
+        { name: 'Cloud Deployment', icon: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/AWS_Simple_Icons_AWS_Cloud.svg' }
+      ],
+      sortOrder: 4
+    },
+    {
+      id: 5,
+      category: 'DevOps & Tools',
+      items: [
+        { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+        { name: 'Git / GitHub Actions', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+        { name: 'CI/CD', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' }
+      ],
+      sortOrder: 5
+    },
+    {
+      id: 6,
+      category: 'Software Practices',
+      items: [
+        { name: 'OOP & Design Patterns', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+        { name: 'System Design & Scalability', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/architect/architect-original.svg' },
+        { name: 'Testing & QA', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg' },
+        { name: 'Performance Optimization', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg' }
+      ],
+      sortOrder: 6
+    }
+  ],
+
   education: [
     {
       id: 1,
       institution: 'The Ohio State University',
-      degree: 'Bachelor of Science',
-      fieldOfStudy: 'Computer Science and Engineering',
+      degree: 'BS, Computer Science and Engineering',
+      fieldOfStudy: null,
       location: 'Columbus, OH',
       graduationYear: '2022',
-      additionalInfo: 'H2O – Student Organization',
+      additionalInfo: [
+        'H2O Student Team',
+        'OSU Work Study: Student Math/Calculus Tutoring Assistant',
+        'OSU Work Study: Student Tech Assistant'
+      ],
       sortOrder: 1
     },
     {
@@ -80,165 +326,14 @@ export const resumeData = {
       fieldOfStudy: null,
       location: 'New Philadelphia, OH',
       graduationYear: '2018',
-      additionalInfo: 'Marching Band, Concert Band, Steel Drum Band, Indoor Percussion Ensemble, and Project Lead the Way',
-      sortOrder: 2
-    }
-  ],
-
-  projects: [
-    {
-      id: 2,
-      name: 'Warehouse Packaging and Employee Management App',
-      description: 'Built a cross-platform app with real-time database integration, workstation logging, and productivity monitoring',
-      technologies: ['Xamarin'],
-      highlights: [
-        'Cross-platform application development',
-        'Real-time database integration',
-        'Workstation logging capabilities',
-        'Productivity monitoring features'
-      ],
-      githubUrl: null,
-      liveUrl: null,
-      imageUrl: '/Portfolio/assets/uploads/warrehouse_phone_example.png',
-      year: null,
-      sortOrder: 1
-    },
-    {
-      id: 3,
-      name: 'WordPress Gift Card Plugin',
-      description: 'Developed secure plugin with bulk card management, PDF generation, and role-based access controls',
-      technologies: ['PHP', 'JavaScript', 'HTML'],
-      highlights: [
-        'Secure plugin development',
-        'Bulk card management functionality',
-        'PDF generation capabilities',
-        'Role-based access controls implementation'
-      ],
-      githubUrl: null,
-      liveUrl: null,
-      imageUrl: '/Portfolio/assets/uploads/giftcardplugin.png',
-      year: null,
-      sortOrder: 2
-    },
-    {
-      id: 4,
-      name: 'TimeCard App & Administrative Site',
-      description: 'Built a real-time geolocation and geofencing system to track user locations and trigger location-based events with precision',
-      technologies: ['ASP.NET', '.NET MAUI'],
-      highlights: [
-        'Real-time geolocation tracking',
-        'Geofencing system implementation',
-        'Location-based event triggers',
-        'Precision location tracking'
-      ],
-      githubUrl: null,
-      liveUrl: null,
-      imageUrl: '/Portfolio/assets/uploads/TimeCardApp.png',
-      year: null,
-      sortOrder: 3
-    },
-    {
-      id: 5,
-      name: 'AEV (Advanced Energy Vehicle)',
-      description: 'Collaborated on the design and testing of an energy-efficient autonomous vehicle. Conducted evaluations and optimizations documented at OSU',
-      technologies: ['MatLab', 'Arduino'],
-      highlights: [
-        'Energy-efficient vehicle design',
-        'Autonomous vehicle systems',
-        'Performance evaluations and optimizations',
-        'Hardware/software integration experience',
-        'Power efficiency optimization',
-        'System iteration and testing'
-      ],
-      githubUrl: null,
-      liveUrl: null,
-      imageUrl: '/Portfolio/assets/uploads/AEVData.png',
-      year: null,
-      sortOrder: 4
-    },
-    {
-      id: 6,
-      name: 'Game Development Projects',
-      description: 'Developed multiple game projects and, through research and experimentation, recreated classic SNES titles such as Mario—later transforming it into another classic Kirby\'s Dreamland, another platformer—to study and apply core gameplay mechanics and design principles.',
-      technologies: ['C#', 'Game Development'],
-      highlights: [
-        'Platform game mechanics implementation',
-        'Character controller systems',
-        'Game state management',
-        'Interactive gameplay features'
-      ],
-      githubUrl: null,
-      liveUrl: null,
-      imageUrl: '/Portfolio/assets/uploads/kirby-gameplay.gif',
-      year: null,
-      sortOrder: 5
-    },
-    {
-      id: 1,
-      name: 'Radar-Inspired Aircraft Path Simulation',
-      description: 'Processed and visualized aircraft flight paths, simulating live radar tracking',
-      technologies: ['C'],
-      highlights: [
-        'Processed and visualized aircraft flight paths',
-        'Simulated live radar tracking functionality'
-      ],
-      githubUrl: null,
-      liveUrl: null,
-      imageUrl: null,
-      year: null,
-      sortOrder: 6
-    }
-  ],
-
-  skills: [
-    {
-      id: 1,
-      category: 'Software Development',
-      items: [
-        { name: 'Full Stack Development', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-        { name: 'Object-Oriented Programming (OOP)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
-        { name: 'API Integration (RESTful Services)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
-        { name: 'Debugging & Optimization', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg' }
-      ],
-      sortOrder: 1
-    },
-    {
-      id: 2,
-      category: 'Web & Mobile Development',
-      items: [
-        { name: 'WordPress Development (Websites, Plugins, Custom Features)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg' },
-        { name: '.NET Development (ASP.NET, .NET MAUI, Xamarin)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg' },
-        { name: 'Mobile App Development (Native & Cross-Platform)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg' },
-        { name: 'Game Development (Unity, Unreal Engine)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg' }
+      additionalInfo: [
+        'Marching Band – Drumline (Center Snare)',
+        'Concert Band – Percussionist',
+        'Steel Drum Band – Double Tenor Pan & Drum Set',
+        'Indoor Percussion Ensemble – Lead Marimba',
+        'Project Lead the Way – 3D printing, Arduino, robotics'
       ],
       sortOrder: 2
-    },
-    {
-      id: 3,
-      category: 'Database & Cloud',
-      items: [
-        { name: 'Database Design & Management (SQL)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-        { name: 'Cloud Deployment (AWS, Azure)', icon: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/AWS_Simple_Icons_AWS_Cloud.svg' },
-        { name: 'Source Control (Git)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' }
-      ],
-      sortOrder: 3
-    },
-    {
-      id: 4,
-      category: 'Programming Languages',
-      items: [
-        { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg' },
-        { name: 'C#', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
-        { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
-        { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-        { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-        { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-        { name: 'Kotlin', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg' },
-        { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-        { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-        { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' }
-      ],
-      sortOrder: 4
     }
   ]
 };

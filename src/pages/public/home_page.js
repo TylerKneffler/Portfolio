@@ -7,7 +7,7 @@ import '../../styles/pages/public/home_page.css';
 
 function Home() {
   // Get selected galaxies and active section from context
-  const { selectedGalaxies, activeSection, setActiveSection } = useGalaxyContext();
+  const { selectedGalaxies, setActiveSection } = useGalaxyContext();
 
   // Fetch resume data
   const { resumeData, loading, error } = useResumeData();
@@ -543,7 +543,18 @@ function Home() {
                       src={project.imageUrl} 
                       alt={`${project.name} preview`}
                       onError={(e) => {
-                        e.target.style.display = 'none';
+                        // If the image fails to load, hide the image element and
+                        // mark the parent project card so the layout can collapse
+                        // the reserved image column.
+                        const img = e.target;
+                        img.style.display = 'none';
+                        const card = img.closest && img.closest('.project-card');
+                        if (card) {
+                          // Add the existing no-image class so CSS will collapse the grid
+                          card.classList.add('project-card-no-image');
+                          // Also set a data attribute for more specific targeting if needed
+                          card.setAttribute('data-image-missing', 'true');
+                        }
                       }}
                     />
                   </div>
@@ -650,7 +661,14 @@ function Home() {
                       </div>
                     </div>
                   </div>
-                    {edu.additionalInfo && (
+                    {Array.isArray(edu.additionalInfo) && (
+                      <ul className="education-additional">
+                        {edu.additionalInfo.map((info, i) => (
+                          <li key={i}>{info}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {!Array.isArray(edu.additionalInfo) && edu.additionalInfo && (
                       <p className="education-additional">{edu.additionalInfo}</p>
                     )}
                   </div>
