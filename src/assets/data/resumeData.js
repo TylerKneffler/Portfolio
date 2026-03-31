@@ -65,6 +65,29 @@ export const resumeData = {
 
   projects: [
     {
+      id: 10,
+      name: 'DeadNot',
+      description: 'Solo-developed and published first-person psychological horror game, free on Steam.',
+      technologies: ['Unity', 'C#'],
+      highlights: [
+        'Sole developer — all programming, design, art direction, and publishing handled end-to-end',
+        'Published free on Steam with full store page, build pipeline, and release management',
+        'Custom in-world console UI system simulating ship controls — interactive menus, command inputs, and system readouts',
+        'Custom camera renderer pipeline producing pixel-art-style monitors and in-world displays with dynamic content',
+        'Hostile entity AI with look-based detection — player exposure time tracked to trigger escalating threat behavior',
+        'Atmospheric environmental storytelling through scannable points of interest and discoverable ship logs',
+        'First-person psychological horror pacing built around tension and isolation.'
+      ],
+      githubUrl: null,
+      liveUrl: 'https://store.steampowered.com/app/4505110/DeadNot/',
+      liveUrlLabel: 'Steam Page',
+      imageUrl: null,
+      videoUrl: 'https://video.akamai.steamstatic.com/store_trailers/4505110/245853755/c408001f5df51a711d7991c7490af39d0c9cea71/1773196610/hls_264_master.m3u8?t=1773697439',
+      videoThumbnailUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257301344/e904649a3c8bdd907fbfefc4d0ad4a57169ddf75/movie_600x337.jpg?t=1773697439',
+      year: 2026,
+      sortOrder: 0
+    },
+    {
       id: 1,
       name: 'Warehouse Packaging and Employee Management App',
       description: 'Cross-platform mobile and admin application to manage productivity, materials, and packaging operations with real-time sync and barcode scanning.',
@@ -81,7 +104,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/warrehouse_phone_example.png',
       year: null,
-      sortOrder: 1
+      sortOrder: 4
     },
     {
       id: 2,
@@ -98,7 +121,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/TimeCardApp.png',
       year: null,
-      sortOrder: 2
+      sortOrder: 5
     },
     {
       id: 3,
@@ -115,7 +138,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/shipping_plugin.png',
       year: null,
-      sortOrder: 3
+      sortOrder: 6
     },
     {
       id: 4,
@@ -132,7 +155,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/giftcardplugin.png',
       year: null,
-      sortOrder: 4
+      sortOrder: 7
     },
     {
       id: 5,
@@ -152,7 +175,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/AEVData.png',
       year: null,
-      sortOrder: 5
+      sortOrder: 8
     },
     {
       id: 6,
@@ -168,7 +191,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/radar_simulation.gif',
       year: null,
-      sortOrder: 6
+      sortOrder: 1
     },
     {
       id: 7,
@@ -184,7 +207,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/above_the_clouds.png',
       year: null,
-      sortOrder: 7
+      sortOrder: 10
     },
     {
       id: 8,
@@ -200,7 +223,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/kirby-gameplay.gif',
       year: null,
-      sortOrder: 8
+      sortOrder: 2
     },
     {
       id: 9,
@@ -220,7 +243,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/card_game.gif',
       year: null,
-      sortOrder: 9
+      sortOrder: 3
     }
   ],
 

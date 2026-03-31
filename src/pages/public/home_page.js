@@ -1,9 +1,61 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Hls from 'hls.js';
 import { useResumeData } from '../../hooks/useResumeData';
 import GalaxyBackground from '../../components/Galaxy/GalaxyBackground';
 import ParallaxGalaxyBackground from '../../components/Galaxy/ParallaxGalaxyBackground';
 import { useGalaxyContext } from '../../contexts/GalaxyContext';
 import '../../styles/pages/public/home_page.css';
+
+function ProjectVideoPlayer({ videoUrl, thumbnailUrl, projectName }) {
+  const videoRef = useRef(null);
+  const hlsRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !playing) return;
+
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // Safari — native HLS
+      video.src = videoUrl;
+      video.play().catch(() => {});
+    } else if (Hls.isSupported()) {
+      const hls = new Hls();
+      hlsRef.current = hls;
+      hls.loadSource(videoUrl);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => {}));
+    }
+
+    return () => {
+      if (hlsRef.current) {
+        hlsRef.current.destroy();
+        hlsRef.current = null;
+      }
+    };
+  }, [playing, videoUrl]);
+
+  if (!playing) {
+    return (
+      <div className="project-video-thumbnail" onClick={() => setPlaying(true)} role="button" aria-label={`Play ${projectName} trailer`}>
+        {thumbnailUrl && <img src={thumbnailUrl} alt={`${projectName} trailer thumbnail`} />}
+        <div className="project-video-play-btn">&#9654; Watch Trailer</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="project-video-player">
+      <video
+        ref={videoRef}
+        controls
+        muted
+        playsInline
+        style={{ width: '100%', display: 'block' }}
+      />
+    </div>
+  );
+}
 
 function Home() {
   // Get selected galaxies and active section from context
@@ -386,7 +438,106 @@ function Home() {
 
       <Spacer height={spacerConfig.heroToAbout} id="spacer-hero-about" debug={DEBUG_SPACERS} />
 
-      <Spacer height={spacerConfig.heroToAbout} id="spacer-hero-experience" debug={DEBUG_SPACERS} />
+      <Spacer height={spacerConfig.heroToAbout} id="spacer-hero-projects" debug={DEBUG_SPACERS} />
+
+      {/* Projects Section*/}
+      <section 
+        id="projects"
+        className="projects-section full-width"
+        style={{...getSectionStyle('projects'), zIndex: 1}}
+      >
+        <div className="projects-container">
+          <div className="section-content">
+            <h2 className="section-header projects-header">
+              My Work
+            </h2>
+          </div>
+          <div className="projects-grid full-width-grid">
+            {projects && projects.length > 0 ? projects.map((project, index) => {
+              const projectId = `project-${index}-${project.id || project.name.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+              const isVisible = visibleProjects.has(projectId);
+              
+              return (
+                <div 
+                  key={project.id || index} 
+                  className={`project-card full-width-card ${isVisible ? 'project-card-fade-in' : ''} ${!project.imageUrl && !project.videoUrl ? 'project-card-no-image' : ''}`}
+                  data-item-id={projectId}
+                  data-item-type="project"
+                >
+                {project.videoUrl ? (
+                  <div className="project-image">
+                    <ProjectVideoPlayer
+                      videoUrl={project.videoUrl}
+                      thumbnailUrl={project.videoThumbnailUrl}
+                      projectName={project.name}
+                    />
+                  </div>
+                ) : project.imageUrl && (
+                  <div className="project-image">
+                    <img 
+                      src={project.imageUrl} 
+                      alt={`${project.name} preview`}
+                      onError={(e) => {
+                        const img = e.target;
+                        img.style.display = 'none';
+                        const card = img.closest && img.closest('.project-card');
+                        if (card) {
+                          card.classList.add('project-card-no-image');
+                          card.setAttribute('data-image-missing', 'true');
+                        }
+                      }}
+                    />
+                  </div>
+                )}
+                <div className="project-content">
+                  <div className="project-header">
+                    <h3 className="project-title">
+                      {project.name}
+                    </h3>
+                    {project.year && (
+                      <span className="project-year">{project.year}</span>
+                    )}
+                  </div>
+                  <p className="project-description">
+                    {project.description}
+                  </p>
+                  {project.highlights && project.highlights.length > 0 && (
+                    <ul className="project-highlights">
+                      {project.highlights.map((highlight, hIndex) => (
+                        <li key={hIndex}>{highlight}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="project-tech">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link">
+                        <span>View Code</span>
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link primary">
+                        <span>{project.liveUrlLabel || 'Live Demo'}</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+              );
+            }) : (
+              <div className="no-projects">
+                <p>No projects data available</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <Spacer height={spacerConfig.aboutToSkills} id="spacer-projects-experience" debug={DEBUG_SPACERS} />
 
       {/* Work Experience Section */}
       {workExperience && workExperience.length > 0 && (
@@ -410,7 +561,7 @@ function Home() {
                     className={`experience-card ${isVisible ? 'experience-card-fade-in' : ''}`}
                     data-item-id={experienceId}
                     data-item-type="experience"
-                    data-item-delay={index * 200} // Staggered delay: 0ms, 200ms, 400ms, etc.
+                    data-item-delay={index * 200}
                   >
                     <div className="experience-header">
                       <div className="job-info">
@@ -437,7 +588,7 @@ function Home() {
         </section>
       )}
 
-      <Spacer height={spacerConfig.aboutToSkills} id="spacer-experience-skills" debug={DEBUG_SPACERS} />
+      <Spacer height={spacerConfig.skillsToProjects} id="spacer-experience-skills" debug={DEBUG_SPACERS} />
 
       {/* Skills Section */}
       <section 
@@ -511,122 +662,7 @@ function Home() {
         </div>
       </section>
 
-      <Spacer height={spacerConfig.skillsToProjects} id="spacer-skills-projects" debug={DEBUG_SPACERS} />
-
-      {/* Projects Section*/}
-      <section 
-        id="projects"
-        className="projects-section full-width"
-        style={{...getSectionStyle('projects'), zIndex: 1}}
-      >
-        <div className="projects-container">
-          <div className="section-content">
-            <h2 className="section-header projects-header">
-              My Work
-            </h2>
-          </div>
-          <div className="projects-grid full-width-grid">
-            {projects && projects.length > 0 ? projects.map((project, index) => {
-              const projectId = `project-${index}-${project.id || project.name.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
-              const isVisible = visibleProjects.has(projectId);
-              
-              return (
-                <div 
-                  key={project.id || index} 
-                  className={`project-card full-width-card ${isVisible ? 'project-card-fade-in' : ''} ${!project.imageUrl ? 'project-card-no-image' : ''}`}
-                  data-item-id={projectId}
-                  data-item-type="project"
-                >
-                {project.imageUrl && (
-                  <div className="project-image">
-                    <img 
-                      src={project.imageUrl} 
-                      alt={`${project.name} preview`}
-                      onError={(e) => {
-                        // If the image fails to load, hide the image element and
-                        // mark the parent project card so the layout can collapse
-                        // the reserved image column.
-                        const img = e.target;
-                        img.style.display = 'none';
-                        const card = img.closest && img.closest('.project-card');
-                        if (card) {
-                          // Add the existing no-image class so CSS will collapse the grid
-                          card.classList.add('project-card-no-image');
-                          // Also set a data attribute for more specific targeting if needed
-                          card.setAttribute('data-image-missing', 'true');
-                        }
-                      }}
-                    />
-                  </div>
-                )}
-                <div className="project-content">
-                  <div className="project-header">
-                    <h3 className="project-title">
-                      {project.name}
-                    </h3>
-                    {project.year && (
-                      <span className="project-year">{project.year}</span>
-                    )}
-                  </div>
-                  <p className="project-description">
-                    {project.description}
-                  </p>
-                  {project.highlights && project.highlights.length > 0 && (
-                    <ul className="project-highlights">
-                      {project.highlights.map((highlight, hIndex) => (
-                        <li key={hIndex}>{highlight}</li>
-                      ))}
-                    </ul>
-                  )}
-                  <div className="project-tech">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  {project.images && project.images.length > 0 && (
-                    <div className="project-gallery">
-                      {project.images.map((image, imgIndex) => (
-                        <img 
-                          key={imgIndex}
-                          src={image} 
-                          alt={`${project.name} screenshot ${imgIndex + 1}`}
-                          className="gallery-image"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                          }}
-                        />
-                      ))}
-                    </div>
-                  )}
-                  {(project.githubUrl || project.liveUrl) && (
-                    <div className="project-links">
-                      {project.githubUrl && (
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-                          <span>View Code</span>
-                        </a>
-                      )}
-                      {project.liveUrl && (
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link primary">
-                          <span>Live Demo</span>
-                        </a>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-              );
-            }) : (
-              <div className="no-projects">
-                <p>No projects data available</p>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      <Spacer height={spacerConfig.projectsToEducation} id="spacer-projects-education" debug={DEBUG_SPACERS} />
+      <Spacer height={spacerConfig.projectsToEducation} id="spacer-skills-education" debug={DEBUG_SPACERS} />
 
       {/* Education Section */}
       {education && education.length > 0 && (

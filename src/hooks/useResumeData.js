@@ -20,7 +20,14 @@ export const useResumeData = () => {
     try {
       // Simulate loading delay for smooth UX
       setTimeout(() => {
-        setResumeData(staticResumeData);
+        const sorted = {
+          ...staticResumeData,
+          projects: [...(staticResumeData.projects || [])].sort((a, b) => (a.sortOrder ?? 999) - (b.sortOrder ?? 999)),
+          workExperience: [...(staticResumeData.workExperience || [])].sort((a, b) => (a.sortOrder ?? 999) - (b.sortOrder ?? 999)),
+          skills: [...(staticResumeData.skills || [])].sort((a, b) => (a.sortOrder ?? 999) - (b.sortOrder ?? 999)),
+          education: [...(staticResumeData.education || [])].sort((a, b) => (a.sortOrder ?? 999) - (b.sortOrder ?? 999)),
+        };
+        setResumeData(sorted);
         setLoading(false);
       }, 100);
     } catch (err) {
