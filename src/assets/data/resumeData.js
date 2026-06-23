@@ -101,11 +101,11 @@ export const resumeData = {
       githubUrl: 'https://github.com/TylerKneffler/WebEffectsLibrary',
       liveUrl: null,
       liveUrlLabel: null,
-      imageUrl: '/Portfolio/blob/master/public/assets/uploads/WebEffectsLibraryScreenshot.png',
+      imageUrl: '/Portfolio/assets/uploads/WebEffectsLibraryScreenshot.png',
       videoUrl: null,
       videoThumbnailUrl: null,
       year: 2026,
-      sortOrder: 0
+      sortOrder: 1
     },
     {
       id: 1,
