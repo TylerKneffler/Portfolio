@@ -88,6 +88,26 @@ export const resumeData = {
       sortOrder: 0
     },
     {
+      id: 11,
+      name: 'Web Effect Library',
+      description: 'Learning and testing ground for browser based web apps',
+      technologies: ['html', 'javascript', 'webgl', 'threejs'],
+      highlights: [
+        'Built a collection of interactive browser experiments focused on real-time visuals, interactive mechanics, and WebGL rendering.',
+        'Implemented peer-to-peer connection experiments for browser-based multiplayer prototypes using the conn pages.',
+        'Developed reusable JavaScript patterns for animation loops, input handling, canvas effects, and Three.js scenes.',
+        'Used the project as a sandbox for prototyping browser-based apps and polishing small interactive experiences.',
+      ],
+      githubUrl: null,
+      liveUrl: 'https://tylerkneffler.github.io/WebEffectsLibrary/',
+      liveUrlLabel: 'Steam Page',
+      imageUrl: null,
+      videoUrl: '',
+      videoThumbnailUrl: '',
+      year: 2026,
+      sortOrder: 0
+    },
+    {
       id: 1,
       name: 'Warehouse Packaging and Employee Management App',
       description: 'Cross-platform mobile and admin application to manage productivity, materials, and packaging operations with real-time sync and barcode scanning.',
