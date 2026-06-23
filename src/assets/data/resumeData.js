@@ -100,7 +100,7 @@ export const resumeData = {
       ],
       githubUrl: 'https://github.com/TylerKneffler/WebEffectsLibrary',
       liveUrl: null,
-      liveUrlLabel: 'Steam Page',
+      liveUrlLabel: null,
       imageUrl: '/Portfolio/blob/master/public/assets/uploads/WebEffectsLibraryScreenshot.png',
       videoUrl: null,
       videoThumbnailUrl: null,
