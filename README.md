@@ -24,7 +24,7 @@ Visit the portfolio at: [https://tylerkneffler.github.io/Portfolio](https://tyle
 ## 📦 Installation & Development
 
 ```bash
-# Clone the repository
+# Clone the repository 
 git clone https://github.com/TylerKneffler/Portfolio.git
 
 # Navigate to project directory
