@@ -85,10 +85,57 @@ export const resumeData = {
       videoUrl: 'https://video.akamai.steamstatic.com/store_trailers/4505110/245853755/c408001f5df51a711d7991c7490af39d0c9cea71/1773196610/hls_264_master.m3u8?t=1773697439',
       videoThumbnailUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257301344/e904649a3c8bdd907fbfefc4d0ad4a57169ddf75/movie_600x337.jpg?t=1773697439',
       year: 2026,
-      sortOrder: 0
+      sortOrder: 1
     },
     {
       id: 11,
+      name: '2D Pixel Sandbox',
+      description: 'Interactive pixel simulation engine with physics-based interactions, multiple material types, terrain generation, and a full-featured editor UI for scene building and manipulation.',
+      technologies: ['JavaScript', 'HTML5 Canvas', 'WebGL', 'GLSL'],
+      highlights: [
+        'Engineered a pixel-by-pixel simulation engine with multi-layer architecture (foreground, background, backdrop) supporting 30+ unique material types including fire, water, vegetation, and dynamic objects.',
+        'Implemented realistic physics simulation including gravity, buoyancy, thermal transfer, temperature-based state changes, and material interactions (combustion, plant growth, gas expansion, reactions).',
+        'Built modular pixel type system with base class inheritance for extensible material behaviors and custom pixel properties (flammability, combustibility, density).',
+        'Developed dynamic object system for world entities (campfire, trees, tents, fishing rod) with scripted behaviors and state persistence across save/load cycles.',
+        'Created multi-layer opacity and visibility controls with per-layer darkening effects for compositing complex scenes.',
+        'Built a full-featured scene editor with brush tools, stamp templates, layer selection, simulation speed controls, and pixel inspection tools.',
+        'Implemented terrain generation framework with composable generators (rolling ground, underground, sky with day/night cycles and vegetation).',
+        'Added save/load functionality with JSON serialization supporting template management and scene persistence.',
+        'Optimized rendering performance through dirty tile culling and efficient canvas updates for real-time 60fps simulation.'
+      ],
+      githubUrl: 'https://github.com/TylerKneffler/WebEffectsLibrary/tree/main/pages/2d_pixel_sandbox',
+      liveUrl: 'https://tylerkneffler.github.io/WebEffectsLibrary/pages/2d_pixel_sandbox/',
+      liveUrlLabel: 'Open Sandbox',
+      imageUrl: null,
+      videoUrl: null,
+      videoThumbnailUrl: null,
+      year: 2026,
+      sortOrder: 1.5
+    },
+    {
+      id: 12,
+      name: 'Connected Tanks',
+      description: 'Standalone peer-to-peer multiplayer browser tank game with WebGL rendering, invite-link rooms, arena rotation, and card-based combat modifiers.',
+      technologies: ['JavaScript', 'HTML5 Canvas', 'WebGL', 'GLSL', 'WebRTC', 'PeerJS'],
+      highlights: [
+        'Built a real-time multiplayer tank arena where hosts create rooms and players join through shareable invite links.',
+        'Implemented PeerJS/WebRTC networking with host-authoritative snapshots for player state, level data, movement, and combat actions.',
+        'Created a custom WebGL sprite renderer with GLSL shaders for canvas-based tank and projectile rendering.',
+        'Designed round and match systems with selectable level pools, configurable wins required, loading states, HUD controls, and host-only match controls.',
+        'Built a card upgrade system with selectable perks and modular behaviors including ricochet shots, mines, shotgun fire, phase rounds, automatic fire, and wall bursts.',
+        'Added multiple handcrafted arenas plus a dedicated level editor workflow for larger map and collision iteration.'
+      ],
+      githubUrl: 'https://github.com/TylerKneffler/WebEffectsLibrary/tree/main/pages/conn_tanks',
+      liveUrl: 'https://tylerkneffler.github.io/WebEffectsLibrary/pages/conn_tanks/views/game.html',
+      liveUrlLabel: 'Play Game',
+      imageUrl: null,
+      videoUrl: null,
+      videoThumbnailUrl: null,
+      year: 2026,
+      sortOrder: 0
+    },
+    {
+      id: 13,
       name: 'Web Effect Library',
       description: 'Learning and testing ground for browser based web apps',
       technologies: ['html', 'javascript', 'webgl', 'threejs'],
@@ -105,7 +152,7 @@ export const resumeData = {
       videoUrl: null,
       videoThumbnailUrl: null,
       year: 2026,
-      sortOrder: 1
+      sortOrder: 2
     },
     {
       id: 1,
