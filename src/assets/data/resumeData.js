@@ -98,11 +98,7 @@ export const resumeData = {
         'Built modular pixel type system with base class inheritance for extensible material behaviors and custom pixel properties (flammability, combustibility, density).',
         'Developed dynamic object system for world entities (campfire, trees, tents, fishing rod) with scripted behaviors and state persistence across save/load cycles.',
         'Created multi-layer opacity and visibility controls with per-layer darkening effects for compositing complex scenes.',
-        'Built a full-featured scene editor with brush tools, stamp templates, layer selection, simulation speed controls, and pixel inspection tools.',
-        'Implemented terrain generation framework with composable generators (rolling ground, underground, sky with day/night cycles and vegetation).',
-        'Added save/load functionality with JSON serialization supporting template management and scene persistence.',
-        'Optimized rendering performance through dirty tile culling and efficient canvas updates for real-time 60fps simulation.'
-      ],
+        ],
       githubUrl: 'https://github.com/TylerKneffler/WebEffectsLibrary/tree/main/pages/2d_pixel_sandbox',
       liveUrl: 'https://tylerkneffler.github.io/WebEffectsLibrary/pages/2d_pixel_sandbox/',
       liveUrlLabel: 'Open Sandbox',
@@ -122,9 +118,7 @@ export const resumeData = {
         'Implemented PeerJS/WebRTC networking with host-authoritative snapshots for player state, level data, movement, and combat actions.',
         'Created a custom WebGL sprite renderer with GLSL shaders for canvas-based tank and projectile rendering.',
         'Designed round and match systems with selectable level pools, configurable wins required, loading states, HUD controls, and host-only match controls.',
-        'Built a card upgrade system with selectable perks and modular behaviors including ricochet shots, mines, shotgun fire, phase rounds, automatic fire, and wall bursts.',
-        'Added multiple handcrafted arenas plus a dedicated level editor workflow for larger map and collision iteration.'
-      ],
+        ],
       githubUrl: 'https://github.com/TylerKneffler/WebEffectsLibrary/tree/main/pages/conn_tanks',
       liveUrl: 'https://tylerkneffler.github.io/WebEffectsLibrary/pages/conn_tanks/views/game.html',
       liveUrlLabel: 'Play Game',
