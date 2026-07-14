@@ -132,7 +132,7 @@ export const resumeData = {
       videoUrl: null,
       videoThumbnailUrl: null,
       year: 2026,
-      sortOrder: 0
+      sortOrder: 1.75
     },
     {
       id: 13,
