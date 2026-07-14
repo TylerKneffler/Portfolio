@@ -65,6 +65,27 @@ export const resumeData = {
 
   projects: [
     {
+      id: 11,
+      name: '2D Pixel Sandbox',
+      description: 'Interactive pixel simulation engine with physics-based interactions, multiple material types, terrain generation, and a full-featured editor UI for scene building and manipulation.',
+      technologies: ['JavaScript', 'HTML5 Canvas', 'WebGL', 'GLSL'],
+      highlights: [
+        'Engineered a pixel-by-pixel simulation engine with multi-layer architecture (foreground, background, backdrop) supporting  unique material types including fire, water, vegetation, and dynamic objects.',
+        'Implemented interactive simulations including gravity, buoyancy, thermal transfer, temperature-based state changes, and material interactions (combustion, plant growth, gas expansion, reactions).',
+        'Built modular pixel type system with base class inheritance for extensible material behaviors and custom pixel properties (flammability, combustibility, density).',
+        'Developed dynamic object system for world entities (campfire, trees, tents, fishing rod) with scripted behaviors and state persistence across save/load cycles.',
+        'Created multi-layer opacity and visibility controls with per-layer darkening effects for compositing complex scenes.',
+        ],
+      githubUrl: 'https://github.com/TylerKneffler/WebEffectsLibrary/tree/main/pages/2d_pixel_sandbox',
+      liveUrl: 'https://tylerkneffler.github.io/WebEffectsLibrary/pages/2d_pixel_sandbox/',
+      liveUrlLabel: 'Open Sandbox',
+      imageUrl: '/Portfolio/assets/uploads/2d_pixel_sandbox.gif',
+      videoUrl: null,
+      videoThumbnailUrl: null,
+      year: 2026,
+      sortOrder: 0
+    },
+    {
       id: 10,
       name: 'DeadNot',
       description: 'Solo-developed and published first-person psychological horror game, free on Steam.',
@@ -88,27 +109,6 @@ export const resumeData = {
       sortOrder: 1
     },
     {
-      id: 11,
-      name: '2D Pixel Sandbox',
-      description: 'Interactive pixel simulation engine with physics-based interactions, multiple material types, terrain generation, and a full-featured editor UI for scene building and manipulation.',
-      technologies: ['JavaScript', 'HTML5 Canvas', 'WebGL', 'GLSL'],
-      highlights: [
-        'Engineered a pixel-by-pixel simulation engine with multi-layer architecture (foreground, background, backdrop) supporting  unique material types including fire, water, vegetation, and dynamic objects.',
-        'Implemented interactive simulations including gravity, buoyancy, thermal transfer, temperature-based state changes, and material interactions (combustion, plant growth, gas expansion, reactions).',
-        'Built modular pixel type system with base class inheritance for extensible material behaviors and custom pixel properties (flammability, combustibility, density).',
-        'Developed dynamic object system for world entities (campfire, trees, tents, fishing rod) with scripted behaviors and state persistence across save/load cycles.',
-        'Created multi-layer opacity and visibility controls with per-layer darkening effects for compositing complex scenes.',
-        ],
-      githubUrl: 'https://github.com/TylerKneffler/WebEffectsLibrary/tree/main/pages/2d_pixel_sandbox',
-      liveUrl: 'https://tylerkneffler.github.io/WebEffectsLibrary/pages/2d_pixel_sandbox/',
-      liveUrlLabel: 'Open Sandbox',
-      imageUrl: '/Portfolio/assets/uploads/2d_pixel_sandbox.gif',
-      videoUrl: null,
-      videoThumbnailUrl: null,
-      year: 2026,
-      sortOrder: 0.5
-    },
-    {
       id: 12,
       name: 'Connected Tanks',
       description: 'Standalone peer-to-peer multiplayer browser tank game with WebGL rendering, invite-link rooms, arena rotation, and card-based combat modifiers.',
@@ -126,7 +126,28 @@ export const resumeData = {
       videoUrl: null,
       videoThumbnailUrl: null,
       year: 2026,
-      sortOrder: 1.75
+      sortOrder: 2
+    },
+    {
+      id: 14,
+      name: 'Custom C++ Game Engine',
+      description: 'Cross-platform game engine built from scratch with custom graphics rendering, scene management, component architecture, and integrated editor.',
+      technologies: ['C++', 'CMake', 'Graphics API', 'GLSL'],
+      highlights: [
+        'Architected a modular engine core with component-based entity system for flexible game object design',
+        'Implemented custom graphics rendering system with shader support and multi-layer rendering pipeline',
+        'Developed scene management system with project loading, asset management, and serialization',
+        'Built integrated editor tooling for scene composition, project management, and asset handling',
+        'Created extensible component and script systems for gameplay logic and object behavior'
+      ],
+      githubUrl: 'https://github.com/TylerKneffler/EngineProject',
+      liveUrl: null,
+      liveUrlLabel: null,
+      imageUrl: null,
+      videoUrl: null,
+      videoThumbnailUrl: null,
+      year: null,
+      sortOrder: 3
     },
     {
       id: 13,
@@ -146,7 +167,7 @@ export const resumeData = {
       videoUrl: null,
       videoThumbnailUrl: null,
       year: 2026,
-      sortOrder: 2
+      sortOrder: 4
     },
     {
       id: 1,
@@ -165,7 +186,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/warrehouse_phone_example.png',
       year: null,
-      sortOrder: 4
+      sortOrder: 5
     },
     {
       id: 2,
@@ -182,7 +203,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/TimeCardApp.png',
       year: null,
-      sortOrder: 5
+      sortOrder: 6
     },
     {
       id: 3,
@@ -199,7 +220,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/shipping_plugin.png',
       year: null,
-      sortOrder: 6
+      sortOrder: 7
     },
     {
       id: 4,
@@ -216,7 +237,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/giftcardplugin.png',
       year: null,
-      sortOrder: 7
+      sortOrder: 8
     },
     {
       id: 5,
@@ -236,7 +257,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/AEVData.png',
       year: null,
-      sortOrder: 8
+      sortOrder: 9
     },
     {
       id: 6,
@@ -252,7 +273,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/radar_simulation.gif',
       year: null,
-      sortOrder: 1.9
+      sortOrder: 10
     },
     {
       id: 7,
@@ -268,7 +289,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/above_the_clouds.png',
       year: null,
-      sortOrder: 10
+      sortOrder: 11
     },
     {
       id: 8,
@@ -284,7 +305,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/kirby-gameplay.gif',
       year: null,
-      sortOrder: 2
+      sortOrder: 12
     },
     {
       id: 9,
@@ -304,7 +325,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/card_game.gif',
       year: null,
-      sortOrder: 3
+      sortOrder: 13
     }
   ],
 
