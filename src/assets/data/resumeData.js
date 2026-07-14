@@ -93,8 +93,8 @@ export const resumeData = {
       description: 'Interactive pixel simulation engine with physics-based interactions, multiple material types, terrain generation, and a full-featured editor UI for scene building and manipulation.',
       technologies: ['JavaScript', 'HTML5 Canvas', 'WebGL', 'GLSL'],
       highlights: [
-        'Engineered a pixel-by-pixel simulation engine with multi-layer architecture (foreground, background, backdrop) supporting 30+ unique material types including fire, water, vegetation, and dynamic objects.',
-        'Implemented realistic physics simulation including gravity, buoyancy, thermal transfer, temperature-based state changes, and material interactions (combustion, plant growth, gas expansion, reactions).',
+        'Engineered a pixel-by-pixel simulation engine with multi-layer architecture (foreground, background, backdrop) supporting  unique material types including fire, water, vegetation, and dynamic objects.',
+        'Implemented interactive simulations including gravity, buoyancy, thermal transfer, temperature-based state changes, and material interactions (combustion, plant growth, gas expansion, reactions).',
         'Built modular pixel type system with base class inheritance for extensible material behaviors and custom pixel properties (flammability, combustibility, density).',
         'Developed dynamic object system for world entities (campfire, trees, tents, fishing rod) with scripted behaviors and state persistence across save/load cycles.',
         'Created multi-layer opacity and visibility controls with per-layer darkening effects for compositing complex scenes.',
@@ -106,7 +106,7 @@ export const resumeData = {
       videoUrl: null,
       videoThumbnailUrl: null,
       year: 2026,
-      sortOrder: 1.5
+      sortOrder: 0.5
     },
     {
       id: 12,
