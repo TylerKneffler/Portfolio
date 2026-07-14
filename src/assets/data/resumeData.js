@@ -252,7 +252,7 @@ export const resumeData = {
       liveUrl: null,
       imageUrl: '/Portfolio/assets/uploads/radar_simulation.gif',
       year: null,
-      sortOrder: 1
+      sortOrder: 1.9
     },
     {
       id: 7,
