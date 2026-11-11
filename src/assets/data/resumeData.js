@@ -130,9 +130,9 @@ export const resumeData = {
     },
     {
       id: 14,
-      name: 'Custom C++ Game Engine',
-      description: 'Cross-platform game engine built from scratch with custom graphics rendering, scene management, component architecture, and integrated editor.',
-      technologies: ['C++', 'CMake', 'Graphics API', 'GLSL'],
+      name: 'Custom Game Engine',
+      description: 'Custom game engine built with custom graphics rendering, scene management, component architecture, and integrated editor.',
+      technologies: ['C++'],
       highlights: [
         'Architected a modular engine core with component-based entity system for flexible game object design',
         'Implemented custom graphics rendering system with shader support and multi-layer rendering pipeline',
@@ -144,6 +144,10 @@ export const resumeData = {
       liveUrl: null,
       liveUrlLabel: null,
       imageUrl: null,
+      imageUrls: [
+        '/Portfolio/assets/uploads/forest-web.gif',
+        '/Portfolio/assets/uploads/grass-meadow-web.gif'
+      ],
       videoUrl: null,
       videoThumbnailUrl: null,
       year: null,

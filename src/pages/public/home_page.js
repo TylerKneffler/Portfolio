@@ -460,7 +460,7 @@ function Home() {
               return (
                 <div 
                   key={project.id || index} 
-                  className={`project-card full-width-card ${isVisible ? 'project-card-fade-in' : ''} ${!project.imageUrl && !project.videoUrl ? 'project-card-no-image' : ''}`}
+                  className={`project-card full-width-card ${isVisible ? 'project-card-fade-in' : ''} ${!project.imageUrl && !project.videoUrl && !project.imageUrls?.length ? 'project-card-no-image' : ''}`}
                   data-item-id={projectId}
                   data-item-type="project"
                 >
@@ -471,6 +471,17 @@ function Home() {
                       thumbnailUrl={project.videoThumbnailUrl}
                       projectName={project.name}
                     />
+                  </div>
+                ) : project.imageUrls && project.imageUrls.length > 0 ? (
+                  <div className="project-image project-image-gallery">
+                    {project.imageUrls.map((imageUrl, imageIndex) => (
+                      <img
+                        key={imageUrl}
+                        src={imageUrl}
+                        alt={`${project.name} preview ${imageIndex + 1}`}
+                        loading="lazy"
+                      />
+                    ))}
                   </div>
                 ) : project.imageUrl && (
                   <div className="project-image">
