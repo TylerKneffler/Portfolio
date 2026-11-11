@@ -151,7 +151,7 @@ export const resumeData = {
       videoUrl: null,
       videoThumbnailUrl: null,
       year: null,
-      sortOrder: 3
+      sortOrder: -1
     },
     {
       id: 13,
